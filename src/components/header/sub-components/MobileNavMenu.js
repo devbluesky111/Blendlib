@@ -7,7 +7,7 @@ const MobileNavMenu = ({ strings }) => {
   return (
     <nav className="offcanvas-navigation" id="offcanvas-navigation">
       <ul>
-        <li className="menu-item-has-children">
+        {/* <li className="menu-item-has-children">
           <Link to={process.env.PUBLIC_URL + "/"}>{strings["home"]}</Link>
           <ul className="sub-menu">
             <li className="menu-item-has-children">
@@ -157,7 +157,7 @@ const MobileNavMenu = ({ strings }) => {
               </ul>
             </li>
           </ul>
-        </li>
+        </li> */}
 
         <li className="menu-item-has-children">
           <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
