@@ -2,22 +2,14 @@ import PropTypes from "prop-types";
 import React from "react";
 import { multilanguage, changeLanguage } from "redux-multilanguage";
 import { connect } from "react-redux";
-import { changeCurrency } from "../../../redux/actions/currencyActions";
 
 const MobileLangCurrChange = ({
-  currency,
-  changeCurrency,
   currentLanguageCode,
   dispatch
 }) => {
   const changeLanguageTrigger = e => {
     const languageCode = e.target.value;
     dispatch(changeLanguage(languageCode));
-  };
-
-  const changeCurrencyTrigger = e => {
-    const currencyName = e.target.value;
-    changeCurrency(currencyName);
   };
 
   const closeMobileMenu = () => {
@@ -41,20 +33,7 @@ const MobileLangCurrChange = ({
           <option value="en">English</option>
           <option value="fn">French</option>
           <option value="de">Germany</option>
-        </select>
-      </div>
-      <div className="lang-curr-style">
-        <span className="title mb-2">Choose Currency</span>
-        <select
-          value={currency.currencyName}
-          onChange={e => {
-            changeCurrencyTrigger(e);
-            closeMobileMenu();
-          }}
-        >
-          <option value="USD">USD</option>
-          <option value="EUR">EUR</option>
-          <option value="GBP">GBP</option>
+          <option value="ar">Arabic</option>
         </select>
       </div>
     </div>
@@ -74,15 +53,6 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    changeCurrency: currencyName => {
-      dispatch(changeCurrency(currencyName));
-    }
-  };
-};
-
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(multilanguage(MobileLangCurrChange));

@@ -1,12 +1,10 @@
-
 import React, { Fragment } from "react";
 import MetaTags from "react-meta-tags";
 import LayoutSumish from "../../layouts/LayoutSumish";
 import HeroSliderSumish from "../../wrappers/hero-slider/HeroSliderSumish";
 import SectionTitleWithText from "../../components/section-title/SectionTitleWithText";
-import TabProductEight from "../../wrappers/product/TabProductEight";
+import TabProductNineteen from "../../wrappers/product/TabProductNineteen";
 import NewsletterTwo from "../../wrappers/newsletter/NewsletterTwo";
-import ImageSliderOne from "../../wrappers/image-slider/ImageSliderOne";
 
 const HomeSumish = () => {
   return (
@@ -24,10 +22,10 @@ const HomeSumish = () => {
         {/* section title */}
         <SectionTitleWithText spaceTopClass="pt-95" spaceBottomClass="pb-90" />
         {/* tab product */}
-        <TabProductEight
-          spaceBottomClass="pb-70"
-          category="fashion"
-          sectionTitle={false}
+        <TabProductNineteen
+          spaceTopClass="pt-95"
+          spaceBottomClass="pb-100"
+          category="furniture"
         />
         {/* newsletter */}
         <NewsletterTwo spaceBottomClass="pb-100" />

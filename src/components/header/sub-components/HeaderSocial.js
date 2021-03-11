@@ -3,6 +3,9 @@ import React from "react";
 const HeaderSocial = () => {
   return (
     <div className="side-social">
+      <div className="pt-4 pb-4">
+        <p>Call Us 3965410</p>
+      </div>
       <ul>
         <li>
           <a
@@ -16,42 +19,42 @@ const HeaderSocial = () => {
         </li>
         <li>
           <a
-            className="dribbble"
-            href="//www.dribbble.com"
+            className="instagram"
+            href="//www.instagram.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i className="fa fa-dribbble" />
+            <i className="fa fa-instagram" />
           </a>
         </li>
         <li>
           <a
-            className="pinterest"
-            href="//www.pinterest.com"
+            className="telegram"
+            href="//www.telegram.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i className="fa fa-pinterest-p" />
+            <i className="fa fa-paper-plane" />
           </a>
         </li>
         <li>
           <a
-            className="twitter"
-            href="//www.twitter.com"
+            className="whatsapp"
+            href="//www.whatsapp.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i className="fa fa-twitter" />
+            <i className="fa fa-whatsapp" />
           </a>
         </li>
         <li>
           <a
-            className="linkedin"
-            href="//www.linkedin.com"
+            className="email"
+            href="mailto:info@yourdomain.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i className="fa fa-linkedin" />
+            <i className="fa fa-envelope" />
           </a>
         </li>
       </ul>

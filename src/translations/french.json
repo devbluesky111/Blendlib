@@ -66,5 +66,10 @@
   "blog_right_sidebar": "Blog Barre latérale droite",
   "blog_details_standard": "Détails du blog Standard",
   "blog_details_video": "Blog Détails Vidéo",
-  "blog_details_slider": "Détails du blog"
+  "blog_details_slider": "Détails du blog",
+  "language": "Langue",
+  "english": "Anglaise",
+  "germany": "Allemagne ",
+  "french": "Français",
+  "arabic": "Arabe"
 }

@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import MenuCart from "./sub-components/MenuCart";
+// import MenuCart from "./sub-components/MenuCart";
 import { removeFromCart } from "../../redux/actions/cartActions";
 
 const IconGroup = ({
@@ -41,7 +41,7 @@ const IconGroup = ({
           </form>
         </div>
       </div>
-      <div className="same-style account-setting d-none d-lg-block">
+      <div className="same-style account-setting d-block d-lg-block">
         <button
           className="account-setting-active"
           onClick={e => handleClick(e)}
@@ -94,7 +94,7 @@ const IconGroup = ({
           currency={currency}
           removeFromCart={removeFromCart}
         />
-      </div> */}
+      </div>
       <div className="same-style cart-wrap d-block d-lg-none">
         <Link className="icon-cart" to={process.env.PUBLIC_URL + "/cart"}>
           <i className="pe-7s-shopbag" />
@@ -102,7 +102,7 @@ const IconGroup = ({
             {cartData && cartData.length ? cartData.length : 0}
           </span>
         </Link>
-      </div>
+      </div> */}
       <div className="same-style mobile-off-canvas d-block d-lg-none">
         <button
           className="mobile-aside-button"

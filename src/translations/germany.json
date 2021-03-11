@@ -66,5 +66,10 @@
   "blog_right_sidebar": "Blog rechte Seitenleiste",
   "blog_details_standard": "Blog Details Standard",
   "blog_details_video": "Blog Details Video",
-  "blog_details_slider": "Blog Details Schieberegler"
+  "blog_details_slider": "Blog Details Schieberegler",
+  "language": "Sprache",
+  "english": "Englisch ",
+  "germany": "Deutsch",
+  "french": "Französisch",
+  "arabic": "Arabisch"
 }

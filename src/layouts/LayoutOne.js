@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React, { Fragment } from "react";
 import HeaderOne from "../wrappers/header/HeaderOne";
-import FooterOne from "../wrappers/footer/FooterOne";
+import FooterSumish from "../wrappers/footer/FooterSumish";
 
 const LayoutOne = ({
   children,
@@ -17,7 +17,7 @@ const LayoutOne = ({
         headerPaddingClass={headerPaddingClass}
       />
       {children}
-      <FooterOne
+      <FooterSumish
         backgroundColorClass="bg-gray"
         spaceTopClass="pt-100"
         spaceBottomClass="pb-70"

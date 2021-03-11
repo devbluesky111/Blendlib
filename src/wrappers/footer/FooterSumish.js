@@ -58,6 +58,7 @@ const FooterSumish = ({
               />
             </Link>
           </div>
+          <p>Call Us 3965410</p>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -71,23 +72,23 @@ const FooterSumish = ({
                 </a>
               </li>
               <li>
-                <a href="//www.dribbble.com">
-                  <i className="fa fa-dribbble" />
+                <a href="//www.instagram.com">
+                  <i className="fa fa-instagram" />
                 </a>
               </li>
               <li>
-                <a href="//www.pinterest.com">
-                  <i className="fa fa-pinterest-p" />
+                <a href="//www.telegram.com">
+                  <i className="fa fa-paper-plane" />
                 </a>
               </li>
               <li>
-                <a href="//www.twitter.com">
-                  <i className="fa fa-twitter" />
+                <a href="//www.whatsapp.com">
+                  <i className="fa fa-whatsapp" />
                 </a>
               </li>
               <li>
-                <a href="//www.linkedin.com">
-                  <i className="fa fa-linkedin" />
+                <a href="mailto:info@yourdomain.com">
+                  <i className="fa fa-envelope" />
                 </a>
               </li>
             </ul>
@@ -102,13 +103,13 @@ const FooterSumish = ({
             }`}
           >
             <p>
-              © 2020{" "}
+              © 2021{" "}
               <a
-                href="//www.hasthemes.com"
+                href="//www.sumish.herokuapp.com"
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                Flone
+                Sumish
               </a>
               . All Rights Reserved.
             </p>
