@@ -48,7 +48,7 @@ const HeaderSumish = ({ layout, headerPaddingClass, headerBgClass }) => {
               </button>
             </div>
           </div>
-          <div className="col-xl-2 col-lg-2 col-md-6 col-6">
+          <div className="col-xl-2 col-lg-2 col-md-7 col-8">
             {/* header logo */}
             <div className="logo text-center logo-hm5">
               <Link className="sticky-none" to={process.env.PUBLIC_URL + "/"}>
@@ -59,7 +59,7 @@ const HeaderSumish = ({ layout, headerPaddingClass, headerBgClass }) => {
               </Link>
             </div>
           </div>
-          <div className="col-xl-5 col-lg-4 col-md-6 col-6">
+          <div className="col-xl-5 col-lg-4 col-md-5 col-4">
             {/* Icon group */}
             <IconGroup iconWhiteClass="header-right-wrap-white" />
           </div>

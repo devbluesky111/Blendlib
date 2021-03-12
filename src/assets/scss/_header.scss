@@ -82,22 +82,22 @@
         a.sticky-block {
             display: none;
           @media #{$md-layout, $xs-layout}{
-              display: block;
+              display: none;
             } 
         }
         a.sticky-none {
             display: block;
             @media #{$md-layout, $xs-layout}{
-              display: none;
+              display: block;
             } 
         }
         @media #{$md-layout}{
             margin-top: 0px;
-            text-align: left !important;
+            text-align: right !important;
         }
         @media #{$xs-layout}{
             margin-top: 0px;
-            text-align: left !important;
+            text-align: right !important;
         }
     }
 }
@@ -2173,9 +2173,9 @@
 	width: 100%;
     z-index: 999;
     
-    @media #{$md-layout, $xs-layout, $sm-layout}{
-        position: relative;
-    }
+    // @media #{$md-layout, $xs-layout, $sm-layout}{
+    //     position: relative;
+    // }
 
     .header-top{
         display: none !important;
