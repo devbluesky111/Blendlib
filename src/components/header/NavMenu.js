@@ -15,18 +15,9 @@ const NavMenu = ({ strings, menuWhiteClass, sidebarMenu }) => {
       <nav>
         <ul>
           <li>
-            <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
+            <Link to={process.env.PUBLIC_URL + "/collection"}>
+              {" "}
               {strings["collection"]}
-            </Link>
-          </li>
-          <li>
-            <Link to={process.env.PUBLIC_URL + "/about"}>
-              Membership
-            </Link>
-          </li>
-          <li>
-            <Link to={process.env.PUBLIC_URL + "/blog-standard"}>
-              {strings["blog"]}
               {sidebarMenu ? (
                 <span>
                   <i className="fa fa-angle-right"></i>
@@ -35,28 +26,105 @@ const NavMenu = ({ strings, menuWhiteClass, sidebarMenu }) => {
                 <i className="fa fa-angle-down" />
               )}
             </Link>
-            <ul className="submenu">
+            <ul className="mega-menu">
               <li>
-                <Link to={process.env.PUBLIC_URL + "/blog-standard"}>
-                  {strings["blog_standard"]}
-                </Link>
+                <ul>
+                  <li className="mega-menu-title">
+                    <Link to={process.env.PUBLIC_URL + "/collection"}>
+                      Furniture
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to={process.env.PUBLIC_URL + "/collection"}>
+                      Cabinets
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to={process.env.PUBLIC_URL + "/collection"}>
+                      Sofas
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to={process.env.PUBLIC_URL + "/collection"}>
+                      Tables
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to={process.env.PUBLIC_URL + "/collection"}>
+                      Chairs
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to={process.env.PUBLIC_URL + "/collection"}>
+                      Beds
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to={process.env.PUBLIC_URL + "/collection"}
+                    >
+                      ArmChairs
+                    </Link>
+                  </li>
+                </ul>
               </li>
               <li>
-                <Link to={process.env.PUBLIC_URL + "/blog-no-sidebar"}>
-                  {strings["blog_no_sidebar"]}
-                </Link>
-              </li>
-              <li>
-                <Link to={process.env.PUBLIC_URL + "/blog-right-sidebar"}>
-                  {strings["blog_right_sidebar"]}
-                </Link>
-              </li>
-              <li>
-                <Link to={process.env.PUBLIC_URL + "/blog-details-standard"}>
-                  {strings["blog_details_standard"]}
-                </Link>
+                <ul>
+                  <li className="mega-menu-title">
+                    <Link to={process.env.PUBLIC_URL + "/collection"}>
+                      Decoration
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to={process.env.PUBLIC_URL + "/collection"}>
+                      Decorative Plaster
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to={process.env.PUBLIC_URL + "/collection"}>
+                      3D Panel
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to={process.env.PUBLIC_URL + "/collection"}>
+                      Bas-relief
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to={process.env.PUBLIC_URL + "/collection"}>
+                      Plants
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to={process.env.PUBLIC_URL + "/collection"}>
+                      Curtain
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to={process.env.PUBLIC_URL + "/collection"}
+                    >
+                      Mirror
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to={process.env.PUBLIC_URL + "/collection"}>
+                      Pictures
+                    </Link>
+                  </li>
+                </ul>
               </li>
             </ul>
+          </li>
+          <li>
+            <Link to={process.env.PUBLIC_URL + "/about"}>
+              Membership
+            </Link>
+          </li>
+          <li>
+            <Link to={process.env.PUBLIC_URL + "/blog"}>
+              {strings["blog"]}
+            </Link>
           </li>
           <li>
             <Link to={process.env.PUBLIC_URL + "/contact"}>

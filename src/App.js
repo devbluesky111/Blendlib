@@ -38,12 +38,7 @@ const ProductFixedImage = lazy(() =>
 );
 
 // blog pages
-const BlogStandard = lazy(() => import("./pages/blog/BlogStandard"));
-const BlogNoSidebar = lazy(() => import("./pages/blog/BlogNoSidebar"));
 const BlogRightSidebar = lazy(() => import("./pages/blog/BlogRightSidebar"));
-const BlogDetailsStandard = lazy(() =>
-  import("./pages/blog/BlogDetailsStandard")
-);
 
 // other pages
 const About = lazy(() => import("./pages/other/About"));
@@ -101,6 +96,10 @@ const App = props => {
                 />
                 <Route
                   path={process.env.PUBLIC_URL + "/shop-grid-filter"}
+                  component={ShopGridFilter}
+                />
+                <Route
+                  path={process.env.PUBLIC_URL + "/collection"}
                   component={ShopGridFilter}
                 />
                 <Route
@@ -162,20 +161,8 @@ const App = props => {
 
                 {/* Blog pages */}
                 <Route
-                  path={process.env.PUBLIC_URL + "/blog-standard"}
-                  component={BlogStandard}
-                />
-                <Route
-                  path={process.env.PUBLIC_URL + "/blog-no-sidebar"}
-                  component={BlogNoSidebar}
-                />
-                <Route
-                  path={process.env.PUBLIC_URL + "/blog-right-sidebar"}
+                  path={process.env.PUBLIC_URL + "/blog"}
                   component={BlogRightSidebar}
-                />
-                <Route
-                  path={process.env.PUBLIC_URL + "/blog-details-standard"}
-                  component={BlogDetailsStandard}
                 />
 
                 {/* Other pages */}

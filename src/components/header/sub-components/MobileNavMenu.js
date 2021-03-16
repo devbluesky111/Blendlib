@@ -6,11 +6,96 @@ import { multilanguage } from "redux-multilanguage";
 const MobileNavMenu = ({ strings }) => {
   return (
     <nav className="offcanvas-navigation" id="offcanvas-navigation">
-      <ul>
-        <li>
-          <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
+      <ul>        
+        <li className="menu-item-has-children">
+          <Link to={process.env.PUBLIC_URL + "/collection"}>
             {strings["collection"]}
           </Link>
+          <ul className="sub-menu">
+            <li className="menu-item-has-children">
+              <Link to={process.env.PUBLIC_URL + "/collection"}>
+                Furniture
+              </Link>
+              <ul className="sub-menu">
+                <li>
+                  <Link to={process.env.PUBLIC_URL + "/collection"}>
+                    Cabinets
+                  </Link>
+                </li>
+                <li>
+                  <Link to={process.env.PUBLIC_URL + "/collection"}>
+                    Sofas
+                  </Link>
+                </li>
+                <li>
+                  <Link to={process.env.PUBLIC_URL + "/collection"}>
+                    Tables
+                  </Link>
+                </li>
+                <li>
+                  <Link to={process.env.PUBLIC_URL + "/collection"}>
+                    Chairs
+                  </Link>
+                </li>
+                <li>
+                  <Link to={process.env.PUBLIC_URL + "/collection"}>
+                    Beds
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to={process.env.PUBLIC_URL + "/collection"}
+                  >
+                    ArmChairs
+                  </Link>
+                </li>
+              </ul>
+            </li>
+            <li className="menu-item-has-children">
+              <Link to={process.env.PUBLIC_URL + "/collection"}>
+                Decoration
+              </Link>
+              <ul className="sub-menu">
+                <li>
+                  <Link to={process.env.PUBLIC_URL + "/collection"}>
+                    Decorative Plaster
+                  </Link>
+                </li>
+                <li>
+                  <Link to={process.env.PUBLIC_URL + "/collection"}>
+                    3D Panel
+                  </Link>
+                </li>
+                <li>
+                  <Link to={process.env.PUBLIC_URL + "/collection"}>
+                    Bas-relief
+                  </Link>
+                </li>
+                <li>
+                  <Link to={process.env.PUBLIC_URL + "/collection"}>
+                    Plants
+                  </Link>
+                </li>
+                <li>
+                  <Link to={process.env.PUBLIC_URL + "/collection"}>
+                    Curtain
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to={process.env.PUBLIC_URL + "/collection"}
+                  >
+                    Mirror
+                  </Link>
+                </li>
+                <li>
+                  <Link to={process.env.PUBLIC_URL + "/collection"}>
+                    Pictures
+                  </Link>
+                </li>
+              </ul>
+            </li>
+          </ul>
         </li>
         <li>
           <Link to={process.env.PUBLIC_URL + "/about"}>
@@ -18,31 +103,9 @@ const MobileNavMenu = ({ strings }) => {
           </Link>
         </li>
         <li className="menu-item-has-children">
-          <Link to={process.env.PUBLIC_URL + "/blog-standard"}>
+          <Link to={process.env.PUBLIC_URL + "/blog"}>
             {strings["blog"]}
           </Link>
-          <ul className="sub-menu">
-            <li>
-              <Link to={process.env.PUBLIC_URL + "/blog-standard"}>
-                {strings["blog_standard"]}
-              </Link>
-            </li>
-            <li>
-              <Link to={process.env.PUBLIC_URL + "/blog-no-sidebar"}>
-                {strings["blog_no_sidebar"]}
-              </Link>
-            </li>
-            <li>
-              <Link to={process.env.PUBLIC_URL + "/blog-right-sidebar"}>
-                {strings["blog_right_sidebar"]}
-              </Link>
-            </li>
-            <li>
-              <Link to={process.env.PUBLIC_URL + "/blog-details-standard"}>
-                {strings["blog_details_standard"]}
-              </Link>
-            </li>
-          </ul>
         </li>
         <li>
           <Link to={process.env.PUBLIC_URL + "/contact"}>
