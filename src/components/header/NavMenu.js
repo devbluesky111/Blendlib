@@ -1,9 +1,26 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import { multilanguage } from "redux-multilanguage";
+import Backend from '../../@utils/BackendUrl';
+import axios from 'axios';
 
 const NavMenu = ({ strings, menuWhiteClass, sidebarMenu }) => {
+
+  const [menus, setMenus] = useState([]);
+  const [subMenus, setSubMenus] = useState([]);
+  
+	const init = async () => {
+		const res = await axios.post(Backend.URL + '/get_submenu');
+		setSubMenus(res.data);
+		const resp = await axios.post(Backend.URL + '/get_menu');
+		setMenus(resp.data);
+	}
+
+  useEffect(()=>{
+    init();
+  }, []);
+
   return (
     <div
       className={` ${
@@ -27,93 +44,28 @@ const NavMenu = ({ strings, menuWhiteClass, sidebarMenu }) => {
               )}
             </Link>
             <ul className="mega-menu">
-              <li>
-                <ul>
-                  <li className="mega-menu-title">
-                    <Link to={process.env.PUBLIC_URL + "/collection"}>
-                      Furniture
-                    </Link>
+              {menus.map((menu) => {
+                return (
+                  <li key={menu.id}>
+                    <ul>
+                      <li  className="mega-menu-title">
+                        <Link to={process.env.PUBLIC_URL + "/collection"}>
+                          {menu.name}
+                        </Link>
+                      </li>
+                      {subMenus.filter(submenu => menu.id === submenu.m_id).map((sm) => {
+                        return (
+                          <li key={sm.id}>
+                            <Link to={process.env.PUBLIC_URL + "/collection"}>
+                              {sm.name}
+                            </Link>
+                          </li>
+                        )
+                      } )}
+                    </ul>
                   </li>
-                  <li>
-                    <Link to={process.env.PUBLIC_URL + "/collection"}>
-                      Cabinets
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to={process.env.PUBLIC_URL + "/collection"}>
-                      Sofas
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to={process.env.PUBLIC_URL + "/collection"}>
-                      Tables
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to={process.env.PUBLIC_URL + "/collection"}>
-                      Chairs
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to={process.env.PUBLIC_URL + "/collection"}>
-                      Beds
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to={process.env.PUBLIC_URL + "/collection"}
-                    >
-                      ArmChairs
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <ul>
-                  <li className="mega-menu-title">
-                    <Link to={process.env.PUBLIC_URL + "/collection"}>
-                      Decoration
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to={process.env.PUBLIC_URL + "/collection"}>
-                      Decorative Plaster
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to={process.env.PUBLIC_URL + "/collection"}>
-                      3D Panel
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to={process.env.PUBLIC_URL + "/collection"}>
-                      Bas-relief
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to={process.env.PUBLIC_URL + "/collection"}>
-                      Plants
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to={process.env.PUBLIC_URL + "/collection"}>
-                      Curtain
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to={process.env.PUBLIC_URL + "/collection"}
-                    >
-                      Mirror
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to={process.env.PUBLIC_URL + "/collection"}>
-                      Pictures
-                    </Link>
-                  </li>
-                </ul>
-              </li>
+                );
+              })}
             </ul>
           </li>
           <li>

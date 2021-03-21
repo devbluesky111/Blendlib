@@ -4,13 +4,13 @@
     "title": "New Arrivals",
     "subtitle": "Fresh Your Mind & <br/> Feeling love",
     "image": "/assets/img/slider/slider-sumish-1.png",
-    "url": "/shop-grid-standard"
+    "url": "/collection"
   },
   {
     "id": 2,
     "title": "New Arrivals",
     "subtitle": "Fresh Your Mind & <br/> Feeling love",
     "image": "/assets/img/slider/slider-sumish-2.png",
-    "url": "/shop-grid-standard"
+    "url": "/collection"
   }
 ]
