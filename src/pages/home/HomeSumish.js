@@ -26,6 +26,7 @@ const HomeSumish = () => {
           spaceTopClass="pt-95"
           spaceBottomClass="pb-100"
           category="furniture"
+          productGridStyleClass="product-wrap-10--style2"
         />
         {/* newsletter */}
         <NewsletterTwo spaceBottomClass="pb-100" />

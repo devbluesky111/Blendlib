@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
 import ProductGridTen from "./ProductGridTen";
@@ -86,14 +86,6 @@ const TabProductNineteen = ({
             </Tab.Pane>
           </Tab.Content>
         </Tab.Container>
-        <div className="view-more text-center mt-20 toggle-btn6 col-12">
-          <Link
-            className="loadMore6"
-            to={process.env.PUBLIC_URL + "/shop-grid-standard"}
-          >
-            VIEW MORE PRODUCTS
-          </Link>
-        </div>
       </div>
     </div>
   );
