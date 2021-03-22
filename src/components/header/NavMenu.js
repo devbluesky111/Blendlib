@@ -44,6 +44,7 @@ const NavMenu = ({ strings, menuWhiteClass, sidebarMenu }) => {
               )}
             </Link>
             <ul className="mega-menu">
+            <div style={{width: '' + menus.length * 200 + 'px' }}>
               {menus.map((menu) => {
                 return (
                   <li key={menu.id}>
@@ -66,6 +67,7 @@ const NavMenu = ({ strings, menuWhiteClass, sidebarMenu }) => {
                   </li>
                 );
               })}
+              </div>
             </ul>
           </li>
           <li>
