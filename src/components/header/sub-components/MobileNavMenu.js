@@ -11,9 +11,9 @@ const MobileNavMenu = ({ strings }) => {
   const [subMenus, setSubMenus] = useState([]);
   
 	const init = async () => {
-		const res = await axios.post(Backend.URL + '/get_submenu');
+		const res = await axios.post(Backend.URL + '/get_submenu_o');
 		setSubMenus(res.data);
-		const resp = await axios.post(Backend.URL + '/get_menu');
+		const resp = await axios.post(Backend.URL + '/get_menu_o');
 		setMenus(resp.data);
 	}
 
