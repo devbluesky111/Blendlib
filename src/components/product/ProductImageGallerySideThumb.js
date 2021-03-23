@@ -75,11 +75,6 @@ const ProductImageGalleryLeftThumb = ({ product, thumbPosition }) => {
           <div className="product-large-image-wrapper">
             {product.discount || product.new ? (
               <div className="product-img-badges">
-                {product.discount ? (
-                  <span className="pink">-{product.discount}%</span>
-                ) : (
-                  ""
-                )}
                 {product.new ? <span className="purple">New</span> : ""}
               </div>
             ) : (

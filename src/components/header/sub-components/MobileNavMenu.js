@@ -32,7 +32,7 @@ const MobileNavMenu = ({ strings }) => {
           <Link to={process.env.PUBLIC_URL + "/collection"}>
             {strings["collection"]}
           </Link>
-          <span class='menu-expand' onClick={sideMenuExpand}><i></i></span>
+          <span className='menu-expand' onClick={sideMenuExpand}><i></i></span>
           <ul className="sub-menu">
             {menus.map((menu) => {
               return (
@@ -40,7 +40,7 @@ const MobileNavMenu = ({ strings }) => {
                   <Link to={process.env.PUBLIC_URL + "/collection"}>
                     {menu.name}
                   </Link>
-                  <span class='menu-expand' onClick={sideMenuExpand}><i></i></span>
+                  <span className='menu-expand' onClick={sideMenuExpand}><i></i></span>
                   <ul className="sub-menu">
                     {subMenus.filter(submenu => menu.id === submenu.m_id).map((sm) => {
                       return (

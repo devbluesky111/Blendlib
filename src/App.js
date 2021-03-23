@@ -15,17 +15,8 @@ const ShopGridFilter = lazy(() => import("./pages/shop/ShopGridFilter"));
 
 
 // product pages
-const Product = lazy(() => import("./pages/shop-product/Product"));
-const ProductTabLeft = lazy(() =>
-  import("./pages/shop-product/ProductTabLeft")
-);
 const ProductTabRight = lazy(() =>
   import("./pages/shop-product/ProductTabRight")
-);
-const ProductSticky = lazy(() => import("./pages/shop-product/ProductSticky"));
-const ProductSlider = lazy(() => import("./pages/shop-product/ProductSlider"));
-const ProductFixedImage = lazy(() =>
-  import("./pages/shop-product/ProductFixedImage")
 );
 
 // blog pages
@@ -36,11 +27,7 @@ const About = lazy(() => import("./pages/other/About"));
 const Contact = lazy(() => import("./pages/other/Contact"));
 const MyAccount = lazy(() => import("./pages/other/MyAccount"));
 const LoginRegister = lazy(() => import("./pages/other/LoginRegister"));
-
-const Cart = lazy(() => import("./pages/other/Cart"));
 const Wishlist = lazy(() => import("./pages/other/Wishlist"));
-const Compare = lazy(() => import("./pages/other/Compare"));
-const Checkout = lazy(() => import("./pages/other/Checkout"));
 
 const NotFound = lazy(() => import("./pages/other/NotFound"));
 
@@ -85,33 +72,19 @@ const App = props => {
                   path={process.env.PUBLIC_URL + "/collection"}
                   component={ShopGridFilter}
                 />
+                <Route
+                  path={process.env.PUBLIC_URL + "/collection/:id"}
+                  component={ShopGridFilter}
+                />
+                <Route
+                  path={process.env.PUBLIC_URL + "/collection/:mid/:sid"}
+                  component={ShopGridFilter}
+                />
 
                 {/* Shop product pages */}
                 <Route
                   path={process.env.PUBLIC_URL + "/product/:id"}
-                  render={routeProps => (
-                    <Product {...routeProps} key={routeProps.match.params.id} />
-                  )}
-                />
-                <Route
-                  path={process.env.PUBLIC_URL + "/product-tab-left/:id"}
-                  component={ProductTabLeft}
-                />
-                <Route
-                  path={process.env.PUBLIC_URL + "/product-tab-right/:id"}
                   component={ProductTabRight}
-                />
-                <Route
-                  path={process.env.PUBLIC_URL + "/product-sticky/:id"}
-                  component={ProductSticky}
-                />
-                <Route
-                  path={process.env.PUBLIC_URL + "/product-slider/:id"}
-                  component={ProductSlider}
-                />
-                <Route
-                  path={process.env.PUBLIC_URL + "/product-fixed-image/:id"}
-                  component={ProductFixedImage}
                 />
 
                 {/* Blog pages */}
@@ -139,25 +112,8 @@ const App = props => {
                 />
 
                 <Route
-                  path={process.env.PUBLIC_URL + "/cart"}
-                  component={Cart}
-                />
-                <Route
                   path={process.env.PUBLIC_URL + "/wishlist"}
                   component={Wishlist}
-                />
-                <Route
-                  path={process.env.PUBLIC_URL + "/compare"}
-                  component={Compare}
-                />
-                <Route
-                  path={process.env.PUBLIC_URL + "/checkout"}
-                  component={Checkout}
-                />
-
-                <Route
-                  path={process.env.PUBLIC_URL + "/not-found"}
-                  component={NotFound}
                 />
 
                 <Route exact component={NotFound} />

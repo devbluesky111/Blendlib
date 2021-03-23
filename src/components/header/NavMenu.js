@@ -50,14 +50,14 @@ const NavMenu = ({ strings, menuWhiteClass, sidebarMenu }) => {
                   <li key={menu.id}>
                     <ul>
                       <li  className="mega-menu-title">
-                        <Link to={process.env.PUBLIC_URL + "/collection"}>
+                        <Link to={process.env.PUBLIC_URL + "/collection/" + menu.id}>
                           {menu.name}
                         </Link>
                       </li>
                       {subMenus.filter(submenu => menu.id === submenu.m_id).map((sm) => {
                         return (
                           <li key={sm.id}>
-                            <Link to={process.env.PUBLIC_URL + "/collection"}>
+                            <Link to={process.env.PUBLIC_URL + "/collection/" + menu.id + "/" + sm.id}>
                               {sm.name}
                             </Link>
                           </li>
