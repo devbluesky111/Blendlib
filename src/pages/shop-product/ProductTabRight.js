@@ -24,7 +24,7 @@ const ProductTabRight = ({ location, product }) => {
 
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>
-        Shop Product
+        Item
       </BreadcrumbsItem>
 
       <LayoutOne headerTop="visible">

@@ -1,7 +1,5 @@
-import PropTypes from "prop-types";
 import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
-import { useToasts } from "react-toast-notifications";
 import ProductModal from "./ProductModal";
 import Backend from '../../@utils/BackendUrl';
 
@@ -13,7 +11,11 @@ const ProductGridListSingle = ({
   spaceBottomClass
 }) => {
   const [modalShow, setModalShow] = useState(false);
-  const { addToast } = useToasts();
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var yyyy = today.getFullYear();
+  today = yyyy + '-' + mm + '-' + dd;
 
   return (
     <Fragment>
@@ -32,7 +34,7 @@ const ProductGridListSingle = ({
                 src={Backend.URL + '/images/' + product.p_image}
                 alt=""
               />
-              {product.featured_images.length > 1 ? (
+              {product.featured_images ? (
                 <img
                   className="hover-img"
                   src={Backend.URL + '/images/' + product.featured_images.split('|')[0]}
@@ -43,25 +45,25 @@ const ProductGridListSingle = ({
               )}
             </Link>
             
-            {/* {product.new ? (
+            {product.created && product.created.includes(today) ? (
               <div className="product-img-badges">
-                {product.new ? <span className="purple">New</span> : ""}
+                <span className="purple">New</span>
               </div>
             ) : (
               ""
-            )} */}
+            )}
 
             <div className="product-action">
               <div className="pro-same-action pro-wishlist">
                 <button
-                  className={wishlistItem !== undefined ? "active" : ""}
-                  disabled={wishlistItem !== undefined}
+                  className={wishlistItem ? "active" : ""}
+                  // disabled={wishlistItem !== undefined}
                   title={
-                    wishlistItem !== undefined
+                    wishlistItem
                       ? "Added to wishlist"
                       : "Add to wishlist"
                   }
-                  onClick={() => addToWishlist(product, addToast)}
+                  onClick={() => addToWishlist(product)}
                 >
                   <i className="pe-7s-like" />
                 </button>

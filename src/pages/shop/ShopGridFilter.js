@@ -11,6 +11,7 @@ import Backend from '../../@utils/BackendUrl';
 import axios from 'axios';
 
 const ShopGridFilter = () => {
+    const [products, setProducts] = useState([]);
     const [layout, setLayout] = useState('grid three-column');
     const [sortType, setSortType] = useState('');
     const [sortValue, setSortValue] = useState('');
@@ -22,18 +23,29 @@ const ShopGridFilter = () => {
     const [sortedProducts, setSortedProducts] = useState([]);
 
     const pageLimit = 15;
-    // const {pathname} = location;
 
-    const [products, setProducts] = useState([]);
-
-	const init = async () => {
-		const res = await axios.post(Backend.URL + '/get_products');
-		setProducts(res.data);
-	}
+    const pathname = window.location.pathname;
 
     useEffect(() => {
+        const init = async () => {
+            let patharr = pathname.split('/');
+
+            let res;
+
+            if (patharr[3]) {
+                res = await axios.post(Backend.URL + '/get_products_menu', {main_menu: patharr[2], sub_menu: patharr[3]});
+                setProducts(res.data[0]);
+            } else if (patharr[2]) {
+                res = await axios.post(Backend.URL + '/get_products_menu', {main_menu: patharr[2]});
+                setProducts(res.data[0]);
+            } else {
+                res = await axios.post(Backend.URL + '/get_products');
+                setProducts(res.data);
+            }
+
+        }
         init(); 
-    }, []);
+    }, [pathname]);
 
     const getLayout = (layout) => {
         setLayout(layout)
@@ -65,7 +77,7 @@ const ShopGridFilter = () => {
             </MetaTags>
 
             <BreadcrumbsItem to={process.env.PUBLIC_URL + '/'}>Home</BreadcrumbsItem>
-            {/* <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>Shop</BreadcrumbsItem> */}
+            <BreadcrumbsItem to={process.env.PUBLIC_URL + '/collection'}>Collections</BreadcrumbsItem>
 
             <LayoutOne headerTop="visible">
                 {/* breadcrumb */}

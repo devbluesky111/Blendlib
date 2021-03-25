@@ -13,7 +13,6 @@ function ProductModal(props) {
   const addToWishlist = props.addtowishlist;
 
   useEffect(() => {
-    console.log(wishlistItem);
     if (
       gallerySwiper !== null &&
       gallerySwiper.controller &&
