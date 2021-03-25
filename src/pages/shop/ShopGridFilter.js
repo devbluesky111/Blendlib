@@ -1,16 +1,16 @@
-import PropTypes from "prop-types";
 import React, { Fragment, useState, useEffect } from 'react';
 import MetaTags from 'react-meta-tags';
 import Paginator from 'react-hooks-paginator';
 import { BreadcrumbsItem } from 'react-breadcrumbs-dynamic';
-import { connect } from 'react-redux';
 import { getSortedProducts } from '../../helpers/product';
 import LayoutOne from '../../layouts/LayoutOne';
 import Breadcrumb from '../../wrappers/breadcrumb/Breadcrumb';
 import ShopTopbarFilter from '../../wrappers/product/ShopTopbarFilter';
 import ShopProducts from '../../wrappers/product/ShopProducts';
+import Backend from '../../@utils/BackendUrl';
+import axios from 'axios';
 
-const ShopGridFilter = ({location, products}) => {
+const ShopGridFilter = () => {
     const [layout, setLayout] = useState('grid three-column');
     const [sortType, setSortType] = useState('');
     const [sortValue, setSortValue] = useState('');
@@ -22,7 +22,18 @@ const ShopGridFilter = ({location, products}) => {
     const [sortedProducts, setSortedProducts] = useState([]);
 
     const pageLimit = 15;
-    const {pathname} = location;
+    // const {pathname} = location;
+
+    const [products, setProducts] = useState([]);
+
+	const init = async () => {
+		const res = await axios.post(Backend.URL + '/get_products');
+		setProducts(res.data);
+	}
+
+    useEffect(() => {
+        init(); 
+    }, []);
 
     const getLayout = (layout) => {
         setLayout(layout)
@@ -54,7 +65,7 @@ const ShopGridFilter = ({location, products}) => {
             </MetaTags>
 
             <BreadcrumbsItem to={process.env.PUBLIC_URL + '/'}>Home</BreadcrumbsItem>
-            <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>Shop</BreadcrumbsItem>
+            {/* <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>Shop</BreadcrumbsItem> */}
 
             <LayoutOne headerTop="visible">
                 {/* breadcrumb */}
@@ -93,15 +104,4 @@ const ShopGridFilter = ({location, products}) => {
     )
 }
 
-ShopGridFilter.propTypes = {
-  location: PropTypes.object,
-  products: PropTypes.array
-}
-
-const mapStateToProps = state => {
-    return{
-        products: state.productData.products
-    }
-}
-
-export default connect(mapStateToProps)(ShopGridFilter);
+export default ShopGridFilter;

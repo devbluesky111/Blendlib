@@ -31,7 +31,7 @@ const ProductDescriptionTab = ({ spaceBottomClass, productFullDesc }) => {
                       <span>Pro Version</span>  <Badge variant="success" style={{color:'white'}}>Published</Badge>
                     </li>
                     <li>
-                      <span>Local Pro Version</span>  <Badge variant="dark" style={{color:'white'}}>Unpublished</Badge>
+                      <span>Platinum Version</span>  <Badge variant="dark" style={{color:'white'}}>Unpublished</Badge>
                     </li>
                   </ul>
                 </div>

@@ -2,29 +2,18 @@ import PropTypes from "prop-types";
 import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import { useToasts } from "react-toast-notifications";
-import { getDiscountPrice } from "../../helpers/product";
 import ProductModal from "./ProductModal";
+import Backend from '../../@utils/BackendUrl';
 
 const ProductGridListSingle = ({
   product,
-  currency,
-  addToCart,
   addToWishlist,
-  addToCompare,
-  cartItem,
   wishlistItem,
-  compareItem,
   sliderClassName,
   spaceBottomClass
 }) => {
   const [modalShow, setModalShow] = useState(false);
   const { addToast } = useToasts();
-
-  const discountedPrice = getDiscountPrice(product.price, product.discount);
-  const finalProductPrice = +(product.price * currency.currencyRate).toFixed(2);
-  const finalDiscountedPrice = +(
-    discountedPrice * currency.currencyRate
-  ).toFixed(2);
 
   return (
     <Fragment>
@@ -40,13 +29,13 @@ const ProductGridListSingle = ({
             <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
               <img
                 className="default-img"
-                src={process.env.PUBLIC_URL + product.image[0]}
+                src={Backend.URL + '/images/' + product.p_image}
                 alt=""
               />
-              {product.image.length > 1 ? (
+              {product.featured_images.length > 1 ? (
                 <img
                   className="hover-img"
-                  src={process.env.PUBLIC_URL + product.image[1]}
+                  src={Backend.URL + '/images/' + product.featured_images.split('|')[0]}
                   alt=""
                 />
               ) : (
@@ -54,13 +43,13 @@ const ProductGridListSingle = ({
               )}
             </Link>
             
-            {product.new ? (
+            {/* {product.new ? (
               <div className="product-img-badges">
                 {product.new ? <span className="purple">New</span> : ""}
               </div>
             ) : (
               ""
-            )}
+            )} */}
 
             <div className="product-action">
               <div className="pro-same-action pro-wishlist">
@@ -106,33 +95,11 @@ const ProductGridListSingle = ({
         show={modalShow}
         onHide={() => setModalShow(false)}
         product={product}
-        currency={currency}
-        discountedprice={discountedPrice}
-        finalproductprice={finalProductPrice}
-        finaldiscountedprice={finalDiscountedPrice}
-        cartitem={cartItem}
         wishlistitem={wishlistItem}
-        compareitem={compareItem}
-        addtocart={addToCart}
         addtowishlist={addToWishlist}
-        addtocompare={addToCompare}
-        addtoast={addToast}
       />
     </Fragment>
   );
-};
-
-ProductGridListSingle.propTypes = {
-  addToCart: PropTypes.func,
-  addToCompare: PropTypes.func,
-  addToWishlist: PropTypes.func,
-  cartItem: PropTypes.object,
-  compareItem: PropTypes.object,
-  currency: PropTypes.object,
-  product: PropTypes.object,
-  sliderClassName: PropTypes.string,
-  spaceBottomClass: PropTypes.string,
-  wishlistItem: PropTypes.object
 };
 
 export default ProductGridListSingle;
