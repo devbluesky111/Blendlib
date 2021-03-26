@@ -1,8 +1,4 @@
-import PropTypes from "prop-types";
 import React from "react";
-import { connect } from "react-redux";
-import { useToasts } from "react-toast-notifications";
-import { getDiscountPrice } from "../../helpers/product";
 import ProductDescriptionInfo from "../../components/product/ProductDescriptionInfo";
 import ProductImageGallerySideThumb from "../../components/product/ProductImageGallerySideThumb";
 
@@ -10,24 +6,11 @@ const ProductImageDescription = ({
   spaceTopClass,
   spaceBottomClass,
   product,
-  currency,
-  cartItems,
-  wishlistItems,
-  compareItems
+  // wishlistItems
 }) => {
-  const wishlistItem = wishlistItems.filter(
-    wishlistItem => wishlistItem.id === product.id
-  )[0];
-  const compareItem = compareItems.filter(
-    compareItem => compareItem.id === product.id
-  )[0];
-  const { addToast } = useToasts();
-
-  const discountedPrice = getDiscountPrice(product.price, product.discount);
-  const finalProductPrice = +(product.price * currency.currencyRate).toFixed(2);
-  const finalDiscountedPrice = +(
-    discountedPrice * currency.currencyRate
-  ).toFixed(2);
+  // const wishlistItem = wishlistItems.filter(
+  //   wishlistItem => wishlistItem.id === product.id
+  // )[0];
 
   return (
     <div
@@ -45,14 +28,7 @@ const ProductImageDescription = ({
             {/* product description info */}
             <ProductDescriptionInfo
               product={product}
-              discountedPrice={discountedPrice}
-              currency={currency}
-              finalDiscountedPrice={finalDiscountedPrice}
-              finalProductPrice={finalProductPrice}
-              cartItems={cartItems}
-              wishlistItem={wishlistItem}
-              compareItem={compareItem}
-              addToast={addToast}
+              // wishlistItem={wishlistItem}
             />
           </div>
         </div>
@@ -61,23 +37,4 @@ const ProductImageDescription = ({
   );
 };
 
-ProductImageDescription.propTypes = {
-  cartItems: PropTypes.array,
-  compareItems: PropTypes.array,
-  currency: PropTypes.object,
-  product: PropTypes.object,
-  spaceBottomClass: PropTypes.string,
-  spaceTopClass: PropTypes.string,
-  wishlistItems: PropTypes.array
-};
-
-const mapStateToProps = state => {
-  return {
-    currency: state.currencyData,
-    cartItems: state.cartData,
-    wishlistItems: state.wishlistData,
-    compareItems: state.compareData
-  };
-};
-
-export default connect(mapStateToProps)(ProductImageDescription);
+export default ProductImageDescription;

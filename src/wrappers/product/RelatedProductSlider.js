@@ -4,7 +4,7 @@ import Swiper from "react-id-swiper";
 import SectionTitle from "../../components/section-title/SectionTitle";
 import ProductGrid from "./ProductGrid";
 
-const RelatedProductSlider = ({ spaceBottomClass, category }) => {
+const RelatedProductSlider = ({ spaceBottomClass }) => {
   const settings = {
     loop: false,
     slidesPerView: 4,
@@ -40,7 +40,7 @@ const RelatedProductSlider = ({ spaceBottomClass, category }) => {
         <div className="row">
           <Swiper {...settings}>
             <ProductGrid
-              category={category}
+              category={'fashion'}
               limit={6}
               sliderClassName="swiper-slide"
             />

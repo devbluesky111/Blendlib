@@ -2,13 +2,20 @@ import PropTypes from "prop-types";
 import React, { Fragment, useEffect, useState } from "react";
 import { LightgalleryProvider, LightgalleryItem } from "react-lightgallery";
 import Swiper from "react-id-swiper";
+import Backend from '../../@utils/BackendUrl';
 
 const ProductImageGalleryLeftThumb = ({ product, thumbPosition }) => {
   const [gallerySwiper, getGallerySwiper] = useState(null);
   const [thumbnailSwiper, getThumbnailSwiper] = useState(null);
 
+  const [images, setImages] = useState([]);
+
   // effect for swiper slider synchronize
   useEffect(() => {
+    let imgs = product.featured_images;
+    if(imgs)
+      setImages(imgs.split('|'));
+
     if (
       gallerySwiper !== null &&
       gallerySwiper.controller &&
@@ -18,7 +25,7 @@ const ProductImageGalleryLeftThumb = ({ product, thumbPosition }) => {
       gallerySwiper.controller.control = thumbnailSwiper;
       thumbnailSwiper.controller.control = gallerySwiper;
     }
-  }, [gallerySwiper, thumbnailSwiper]);
+  }, [gallerySwiper, thumbnailSwiper, product]);
 
   // swiper slider settings
   const gallerySwiperParams = {
@@ -62,8 +69,15 @@ const ProductImageGalleryLeftThumb = ({ product, thumbPosition }) => {
     }
   };
 
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var yyyy = today.getFullYear();
+  today = yyyy + '-' + mm + '-' + dd;
+
   return (
     <Fragment>
+      {images.length > 0 ?
       <div className="row row-5">
         <div
           className={` ${
@@ -72,23 +86,23 @@ const ProductImageGalleryLeftThumb = ({ product, thumbPosition }) => {
               : "col-xl-10"
           }`}
         >
-          <div className="product-large-image-wrapper">
-            {product.discount || product.new ? (
+          <div className="product-large-image-wrapper">            
+            {product.created && product.created.includes(today) ? (
               <div className="product-img-badges">
-                {product.new ? <span className="purple">New</span> : ""}
+                <span className="purple">New</span>
               </div>
             ) : (
               ""
             )}
             <LightgalleryProvider>
               <Swiper {...gallerySwiperParams}>
-                {product.image &&
-                  product.image.map((single, key) => {
+                {images &&
+                  images.map((single, key) => {
                     return (
                       <div key={key}>
                         <LightgalleryItem
                           group="any"
-                          src={process.env.PUBLIC_URL + single}
+                          src={Backend.URL + '/images/' + single}
                         >
                           <button>
                             <i className="pe-7s-expand1"></i>
@@ -96,7 +110,7 @@ const ProductImageGalleryLeftThumb = ({ product, thumbPosition }) => {
                         </LightgalleryItem>
                         <div className="single-image">
                           <img
-                            src={process.env.PUBLIC_URL + single}
+                            src={Backend.URL + '/images/' + single}
                             className="img-fluid"
                             alt=""
                           />
@@ -116,14 +130,14 @@ const ProductImageGalleryLeftThumb = ({ product, thumbPosition }) => {
           }`}
         >
           <div className="product-small-image-wrapper product-small-image-wrapper--side-thumb">
-            <Swiper {...thumbnailSwiperParams}>
-              {product.image &&
-                product.image.map((single, key) => {
+            <Swiper {...thumbnailSwiperParams} >
+              {images &&
+                images.map((single, key) => {
                   return (
                     <div key={key}>
                       <div className="single-image">
                         <img
-                          src={process.env.PUBLIC_URL + single}
+                          src={Backend.URL + '/images/' + single}
                           className="img-fluid"
                           alt=""
                         />
@@ -135,6 +149,7 @@ const ProductImageGalleryLeftThumb = ({ product, thumbPosition }) => {
           </div>
         </div>
       </div>
+      : <></> }
     </Fragment>
   );
 };

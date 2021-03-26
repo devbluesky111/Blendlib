@@ -4,7 +4,7 @@ import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
 import { Badge } from "react-bootstrap";
 
-const ProductDescriptionTab = ({ spaceBottomClass, productFullDesc }) => {
+const ProductDescriptionTab = ({ spaceBottomClass, product }) => {
   return (
     <div className={`description-review-area ${spaceBottomClass}`}>
       <div className="container">
@@ -25,19 +25,19 @@ const ProductDescriptionTab = ({ spaceBottomClass, productFullDesc }) => {
                 <div className="product-anotherinfo-wrapper">
                   <ul>
                     <li>
-                      <span>Free Version</span> <Badge variant="success" style={{color:'white'}}>Published</Badge>
+                      <span>Free Version</span> {product.free_v === 'on' ? <Badge variant="success" style={{color:'white'}}>Published</Badge> : <Badge variant="dark" style={{color:'white'}}>Unpublished</Badge>}
                     </li>
                     <li>
-                      <span>Pro Version</span>  <Badge variant="success" style={{color:'white'}}>Published</Badge>
+                      <span>Pro Version</span> {product.pro_v === 'on' ? <Badge variant="success" style={{color:'white'}}>Published</Badge> : <Badge variant="dark" style={{color:'white'}}>Unpublished</Badge>}
                     </li>
                     <li>
-                      <span>Platinum Version</span>  <Badge variant="dark" style={{color:'white'}}>Unpublished</Badge>
+                      <span>Platinum Version</span> {product.local_v === 'on' ? <Badge variant="success" style={{color:'white'}}>Published</Badge> : <Badge variant="dark" style={{color:'white'}}>Unpublished</Badge>}
                     </li>
                   </ul>
                 </div>
               </Tab.Pane>
               <Tab.Pane eventKey="productDescription">
-                {productFullDesc}
+                {product.long_description}
               </Tab.Pane>
             </Tab.Content>
           </Tab.Container>

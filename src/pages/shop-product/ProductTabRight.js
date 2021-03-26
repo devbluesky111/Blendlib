@@ -1,16 +1,32 @@
-import PropTypes from "prop-types";
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import MetaTags from "react-meta-tags";
 import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
-import { connect } from "react-redux";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import RelatedProductSlider from "../../wrappers/product/RelatedProductSlider";
 import ProductDescriptionTab from "../../wrappers/product/ProductDescriptionTab";
 import ProductImageDescription from "../../wrappers/product/ProductImageDescription";
+import Backend from '../../@utils/BackendUrl';
+import axios from 'axios';
 
-const ProductTabRight = ({ location, product }) => {
-  const { pathname } = location;
+const ProductTabRight = () => {
+  const pathname = window.location.pathname;
+  const [product, setProduct] = useState({});
+
+  useEffect(() => {
+      const init = async () => {
+          let patharr = pathname.split('/');
+
+          let res;
+          
+          if (patharr[2]) {
+              res = await axios.post(Backend.URL + '/get_product_id', {id: patharr[2]});
+              setProduct(res.data[0][0]);
+          }
+
+      }
+      init(); 
+  }, [pathname]);
 
   return (
     <Fragment>
@@ -42,31 +58,16 @@ const ProductTabRight = ({ location, product }) => {
         {/* product description tab */}
         <ProductDescriptionTab
           spaceBottomClass="pb-90"
-          productFullDesc={product.fullDescription}
+          product={product}
         />
 
         {/* related product slider */}
         <RelatedProductSlider
           spaceBottomClass="pb-95"
-          category={product.category[0]}
         />
       </LayoutOne>
     </Fragment>
   );
 };
 
-ProductTabRight.propTypes = {
-  location: PropTypes.object,
-  product: PropTypes.object
-};
-
-const mapStateToProps = (state, ownProps) => {
-  const productId = ownProps.match.params.id;
-  return {
-    product: state.productData.products.filter(
-      single => single.id === productId
-    )[0]
-  };
-};
-
-export default connect(mapStateToProps)(ProductTabRight);
+export default ProductTabRight;
