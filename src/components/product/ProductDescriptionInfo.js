@@ -13,7 +13,13 @@ const ProductDescriptionInfo = ({
       </div>
 
       <div className="mt-5 mb-5">
-        <a target='_blank' href={Backend.URL + '/blends/' + product.free_blend} className="btn btn-success"> Download &nbsp;&nbsp;<i className="fa fa-download"></i> </a>
+        <a target='_blank' rel='noopener noreferrer' href={Backend.URL + '/blends/' + product.free_blend} className="btn btn-success"> Download &nbsp;&nbsp;<i className="fa fa-download"></i> </a>
+      </div>
+      <div className="mt-5 mb-5">
+        <a target='_blank' rel='noopener noreferrer' href={Backend.URL + '/blends/' + product.free_blend} className="btn btn-success"> Download &nbsp;&nbsp;<i className="fa fa-download"></i> </a>
+      </div>
+      <div className="mt-5 mb-5">
+        <a target='_blank' rel='noopener noreferrer' href={Backend.URL + '/blends/' + product.free_blend} className="btn btn-success"> Download &nbsp;&nbsp;<i className="fa fa-download"></i> </a>
       </div>
 
       <div className="pro-details-social">
