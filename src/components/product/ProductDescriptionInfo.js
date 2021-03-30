@@ -1,5 +1,6 @@
 import React from "react";
 import Backend from '../../@utils/BackendUrl';
+import { Badge } from "react-bootstrap";
 
 const ProductDescriptionInfo = ({
   product
@@ -13,13 +14,34 @@ const ProductDescriptionInfo = ({
       </div>
 
       <div className="mt-5 mb-5">
-        <a target='_blank' rel='noopener noreferrer' href={Backend.URL + '/blends/' + product.free_blend} className="btn btn-success"> Download &nbsp;&nbsp;<i className="fa fa-download"></i> </a>
-      </div>
-      <div className="mt-5 mb-5">
-        <a target='_blank' rel='noopener noreferrer' href={Backend.URL + '/blends/' + product.free_blend} className="btn btn-success"> Download &nbsp;&nbsp;<i className="fa fa-download"></i> </a>
-      </div>
-      <div className="mt-5 mb-5">
-        <a target='_blank' rel='noopener noreferrer' href={Backend.URL + '/blends/' + product.free_blend} className="btn btn-success"> Download &nbsp;&nbsp;<i className="fa fa-download"></i> </a>
+        {product.platinum === 'on' ? 
+          <>
+            {product.local_blend ? product.local_blend.split('|').map((lb, _i)=>{
+              return (
+                <div className="mt-2" key={_i}>
+                  <a target='_blank' rel='noopener noreferrer' href={Backend.URL + '/blends/' + lb}> <Badge variant="danger" style={{color:'white'}}>Platinum</Badge>&nbsp;&nbsp;&nbsp;&nbsp;<i className="fa fa-download"></i> {lb.split('/').pop()}  </a>
+                </div>
+              )
+            }) : <></>}
+          </>          
+        :
+          <>
+            {product.free_blend ? product.free_blend.split('|').map((fb, _i)=>{
+              return (
+                <div className="mt-2" key={_i}>
+                  <a target='_blank' rel='noopener noreferrer' href={Backend.URL + '/blends/' + fb} > <Badge variant="primary" style={{color:'white'}}>Free</Badge>&nbsp;&nbsp;&nbsp;&nbsp;<i className="fa fa-download"></i> {fb.split('/').pop()}  </a>
+                </div>
+              )
+            }) : <></>}
+            {product.pro_blend ? product.pro_blend.split('|').map((pb, _i)=>{
+              return (
+                <div className="mt-2" key={_i}>
+                  <a target='_blank' rel='noopener noreferrer' href={Backend.URL + '/blends/' + pb} > <Badge variant="danger" style={{color:'white'}}> Pro </Badge>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i className="fa fa-download"></i> {pb.split('/').pop()}  </a>
+                </div>
+              )
+            }) : <></>}
+          </> 
+        }
       </div>
 
       <div className="pro-details-social">

@@ -42,14 +42,19 @@ const ProductImageGalleryLeftThumb = ({ product }) => {
         <div
           className="col-xl-12"
         >
-          <div className="product-large-image-wrapper">            
-            {product.created && product.created.includes(today) ? (
-              <div className="product-img-badges">
-                <span className="purple">New</span>
-              </div>
-            ) : (
-              ""
-            )}
+          <div className="product-large-image-wrapper">  
+            <div className="product-img-badges">          
+              {product.created && product.created.includes(today) ? (
+                  <span className="purple">New</span>
+              ) : (
+                ""
+              )}
+              {product.platinum === 'on' ? (
+                  <span className="pink">Platinum</span>
+              ) : (
+                ""
+              )}
+            </div>
             <LightgalleryProvider>
               <Swiper {...gallerySwiperParams}>
                 {images &&

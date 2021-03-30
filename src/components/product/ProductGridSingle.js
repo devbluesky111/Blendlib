@@ -1,37 +1,26 @@
-import PropTypes from "prop-types";
 import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
-import { useToasts } from "react-toast-notifications";
-import { getDiscountPrice } from "../../helpers/product";
 import ProductModal from "./ProductModal";
+import Backend from '../../@utils/BackendUrl';
 
 const ProductGridSingle = ({
   product,
-  currency,
-  addToCart,
   addToWishlist,
-  addToCompare,
-  cartItem,
   wishlistItem,
-  compareItem,
-  sliderClassName,
   spaceBottomClass
 }) => {
   const [modalShow, setModalShow] = useState(false);
-  const { addToast } = useToasts();
 
-  const discountedPrice = getDiscountPrice(product.price, product.discount);
-  const finalProductPrice = +(product.price * currency.currencyRate).toFixed(2);
-  const finalDiscountedPrice = +(
-    discountedPrice * currency.currencyRate
-  ).toFixed(2);
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var yyyy = today.getFullYear();
+  today = yyyy + '-' + mm + '-' + dd;
 
   return (
     <Fragment>
       <div
-        className={`col-xl-3 col-md-6 col-lg-4 col-sm-6 ${
-          sliderClassName ? sliderClassName : ""
-        }`}
+        className={`col-xl-3 col-md-6 col-lg-4 col-sm-6`}
       >
         <div
           className={`product-wrap ${spaceBottomClass ? spaceBottomClass : ""}`}
@@ -40,38 +29,43 @@ const ProductGridSingle = ({
             <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
               <img
                 className="default-img"
-                src={process.env.PUBLIC_URL + product.image[0]}
+                src={Backend.URL + '/images/' + product.p_image}
                 alt=""
               />
-              {product.image.length > 1 ? (
+              {product.featured_images ? (
                 <img
                   className="hover-img"
-                  src={process.env.PUBLIC_URL + product.image[1]}
+                  src={Backend.URL + '/images/' + product.featured_images.split('|')[0]}
                   alt=""
                 />
               ) : (
                 ""
               )}
             </Link>
-            {product.discount || product.new ? (
-              <div className="product-img-badges">
-                {product.new ? <span className="purple">New</span> : ""}
-              </div>
-            ) : (
-              ""
-            )}
+            <div className="product-img-badges">          
+              {product.created && product.created.includes(today) ? (
+                  <span className="purple">New</span>
+              ) : (
+                ""
+              )}
+              {product.platinum === 'on' ? (
+                  <span className="pink">Platinum</span>
+              ) : (
+                ""
+              )}
+            </div>
 
             <div className="product-action">
               <div className="pro-same-action pro-wishlist">
                 <button
-                  className={wishlistItem !== undefined ? "active" : ""}
-                  disabled={wishlistItem !== undefined}
+                  className={wishlistItem ? "active" : ""}
+                  disabled={wishlistItem}
                   title={
-                    wishlistItem !== undefined
+                    wishlistItem 
                       ? "Added to wishlist"
                       : "Add to wishlist"
                   }
-                  onClick={() => addToWishlist(product, addToast)}
+                  onClick={() => addToWishlist(product)}
                 >
                   <i className="pe-7s-like" />
                 </button>
@@ -106,33 +100,11 @@ const ProductGridSingle = ({
         show={modalShow}
         onHide={() => setModalShow(false)}
         product={product}
-        currency={currency}
-        discountedprice={discountedPrice}
-        finalproductprice={finalProductPrice}
-        finaldiscountedprice={finalDiscountedPrice}
-        cartitem={cartItem}
         wishlistitem={wishlistItem}
-        compareitem={compareItem}
-        addtocart={addToCart}
         addtowishlist={addToWishlist}
-        addtocompare={addToCompare}
-        addtoast={addToast}
       />
     </Fragment>
   );
-};
-
-ProductGridSingle.propTypes = {
-  addToCart: PropTypes.func,
-  addToCompare: PropTypes.func,
-  addToWishlist: PropTypes.func,
-  cartItem: PropTypes.object,
-  compareItem: PropTypes.object,
-  currency: PropTypes.object,
-  product: PropTypes.object,
-  sliderClassName: PropTypes.string,
-  spaceBottomClass: PropTypes.string,
-  wishlistItem: PropTypes.object
 };
 
 export default ProductGridSingle;

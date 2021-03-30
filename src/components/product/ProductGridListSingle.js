@@ -45,13 +45,18 @@ const ProductGridListSingle = ({
               )}
             </Link>
             
-            {product.created && product.created.includes(today) ? (
-              <div className="product-img-badges">
-                <span className="purple">New</span>
-              </div>
-            ) : (
-              ""
-            )}
+            <div className="product-img-badges">          
+              {product.created && product.created.includes(today) ? (
+                  <span className="purple">New</span>
+              ) : (
+                ""
+              )}
+              {product.platinum === 'on' ? (
+                  <span className="pink">Platinum</span>
+              ) : (
+                ""
+              )}
+            </div>
 
             <div className="product-action">
               <div className="pro-same-action pro-wishlist">
