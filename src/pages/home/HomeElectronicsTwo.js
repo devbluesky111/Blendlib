@@ -12,7 +12,7 @@ const HomeElectronicsTwo = () => {
   return (
     <Fragment>
       <MetaTags>
-        <title>Flone | Electronics Home</title>
+        <title>Sumish | Electronics Home</title>
         <meta
           name="description"
           content="Electronics home of flone react minimalist eCommerce template."

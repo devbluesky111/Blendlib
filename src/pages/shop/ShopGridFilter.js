@@ -28,19 +28,30 @@ const ShopGridFilter = () => {
 
     useEffect(() => {
         const init = async () => {
-            let patharr = pathname.split('/');
+            const patharr = pathname.split('/');
+
+            let platinum = 'off';
+
+            const user = await axios.post(Backend.URL + '/check_login', {params: 'check_login'}, { withCredentials: true });
+            
+            if(user.data.status === 'success') {
+                let user_data = user.data.data[0][0];
+                if (user_data.membership === 'platinum') {
+                    platinum = 'on';
+                }
+            }
 
             let res;
 
             if (patharr[3]) {
-                res = await axios.post(Backend.URL + '/get_products_menu', {main_menu: patharr[2], sub_menu: patharr[3]});
+                res = await axios.post(Backend.URL + '/get_products_menu', {main_menu: patharr[2], sub_menu: patharr[3], platinum: platinum});
                 setProducts(res.data[0]);
             } else if (patharr[2]) {
-                res = await axios.post(Backend.URL + '/get_products_menu', {main_menu: patharr[2]});
+                res = await axios.post(Backend.URL + '/get_products_menu', {main_menu: patharr[2], platinum: platinum});
                 setProducts(res.data[0]);
             } else {
-                res = await axios.post(Backend.URL + '/get_products');
-                setProducts(res.data);
+                res = await axios.post(Backend.URL + '/get_products', {platinum: platinum});
+                setProducts(res.data[0]);
             }
 
         }
@@ -72,7 +83,7 @@ const ShopGridFilter = () => {
     return (
         <Fragment>
             <MetaTags>
-                <title>Flone | Shop Page</title>
+                <title>Sumish | Shop Page</title>
                 <meta name="description" content="Shop page of flone react minimalist eCommerce template." />
             </MetaTags>
 

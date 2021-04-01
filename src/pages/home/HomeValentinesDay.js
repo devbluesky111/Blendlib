@@ -13,7 +13,7 @@ const HomeValentinesDay = () => {
   return (
     <Fragment>
       <MetaTags>
-        <title>Flone | Valentines day Home</title>
+        <title>Sumish | Valentines day Home</title>
         <meta
           name="description"
           content="Valentines day home of flone react minimalist eCommerce template."

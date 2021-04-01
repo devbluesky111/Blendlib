@@ -50,7 +50,7 @@ const ShopGridFullWidth = ({location, products}) => {
     return (
         <Fragment>
             <MetaTags>
-                <title>Flone | Shop Page</title>
+                <title>Sumish | Shop Page</title>
                 <meta name="description" content="Shop page of flone react minimalist eCommerce template." />
             </MetaTags>
 

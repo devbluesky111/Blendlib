@@ -1,10 +1,40 @@
 import React from "react";
-import Backend from '../../@utils/BackendUrl';
 import { Badge } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import Backend from '../../@utils/BackendUrl';
+import swal from 'sweetalert';
 
 const ProductDescriptionInfo = ({
-  product
+  product,
+  membership
 }) => {
+
+  const download = async (target, type) => {
+    if (type === 'free') {
+      window.open(
+        Backend.URL + '/blends/' + target,
+        '_blank'
+      );
+    } else if (type === 'pro') {
+      if (membership === 'free') {
+        swal("Oops!", "You have to upgrade your membership to pro to download this file!", "error");
+      } else {
+        window.open(
+          Backend.URL + '/blends/' + target,
+          '_blank'
+        );
+      }
+    } else if (type === 'platinum') {
+      if (membership === 'platinum') {
+        window.open(
+          Backend.URL + '/blends/' + target,
+          '_blank'
+        );
+      } else {
+        swal("Oops!", "You have to upgrade your membership to platinum to download this file!", "error");
+      }
+    }
+  }
 
   return (
     <div className="product-details-content ml-70">
@@ -19,7 +49,7 @@ const ProductDescriptionInfo = ({
             {product.local_blend ? product.local_blend.split('|').map((lb, _i)=>{
               return (
                 <div className="mt-2" key={_i}>
-                  <a target='_blank' rel='noopener noreferrer' href={Backend.URL + '/blends/' + lb} download> <Badge variant="danger" style={{color:'white'}}>Platinum</Badge>&nbsp;&nbsp;&nbsp;&nbsp;<i className="fa fa-download"></i> {lb.split('/').pop()}  </a>
+                  <Link to="#" onClick={() => {download(lb, 'platinum')}} > <Badge variant="danger" style={{color:'white'}}>Platinum</Badge>&nbsp;&nbsp;&nbsp;&nbsp;<i className="fa fa-download"></i> {lb.split('/').pop()}</Link>
                 </div>
               )
             }) : <></>}
@@ -29,14 +59,14 @@ const ProductDescriptionInfo = ({
             {product.free_blend ? product.free_blend.split('|').map((fb, _i)=>{
               return (
                 <div className="mt-2" key={_i}>
-                  <a target='_blank' rel='noopener noreferrer' href={Backend.URL + '/blends/' + fb} download> <Badge variant="primary" style={{color:'white'}}>Free</Badge>&nbsp;&nbsp;&nbsp;&nbsp;<i className="fa fa-download"></i> {fb.split('/').pop()}  </a>
+                  <Link to="#" onClick={() => {download(fb, 'free')}} > <Badge variant="primary" style={{color:'white'}}>Free</Badge>&nbsp;&nbsp;&nbsp;&nbsp;<i className="fa fa-download"></i> {fb.split('/').pop()}  </Link>
                 </div>
               )
             }) : <></>}
             {product.pro_blend ? product.pro_blend.split('|').map((pb, _i)=>{
               return (
                 <div className="mt-2" key={_i}>
-                  <a target='_blank' rel='noopener noreferrer' href={Backend.URL + '/blends/' + pb} download> <Badge variant="danger" style={{color:'white'}}> Pro </Badge>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i className="fa fa-download"></i> {pb.split('/').pop()}  </a>
+                  <Link to="#" onClick={() => {download(pb, 'pro')}} > <Badge variant="danger" style={{color:'white'}}> Pro </Badge>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i className="fa fa-download"></i> {pb.split('/').pop()}  </Link>
                 </div>
               )
             }) : <></>}

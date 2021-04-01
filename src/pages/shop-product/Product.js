@@ -15,7 +15,7 @@ const Product = ({ location, product }) => {
   return (
     <Fragment>
       <MetaTags>
-        <title>Flone | Product Page</title>
+        <title>Sumish | Product Page</title>
         <meta
           name="description"
           content="Product page of flone react minimalist eCommerce template."

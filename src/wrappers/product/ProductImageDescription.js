@@ -6,6 +6,7 @@ const ProductImageDescription = ({
   spaceTopClass,
   spaceBottomClass,
   product,
+  membership
   // wishlistItems
 }) => {
   // const wishlistItem = wishlistItems.filter(
@@ -28,6 +29,7 @@ const ProductImageDescription = ({
             {/* product description info */}
             <ProductDescriptionInfo
               product={product}
+              membership={membership}
               // wishlistItem={wishlistItem}
             />
           </div>

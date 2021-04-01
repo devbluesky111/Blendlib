@@ -30,7 +30,7 @@ const Wishlist = ({
   return (
     <Fragment>
       <MetaTags>
-        <title>Flone | Wishlist</title>
+        <title>Sumish | Wishlist</title>
         <meta
           name="description"
           content="Wishlist page of flone react minimalist eCommerce template."

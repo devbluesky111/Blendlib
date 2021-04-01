@@ -8,7 +8,7 @@ const HomeGridBanner = () => {
   return (
     <Fragment>
       <MetaTags>
-        <title>Flone | Grid Banner Home</title>
+        <title>Sumish | Grid Banner Home</title>
         <meta
           name="description"
           content="Grid banner home of flone react minimalist eCommerce template."

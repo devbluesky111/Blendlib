@@ -12,7 +12,7 @@ const HomeFurniture = () => {
   return (
     <Fragment>
       <MetaTags>
-        <title>Flone | Furniture Home</title>
+        <title>Sumish | Furniture Home</title>
         <meta
           name="description"
           content="Furniture home of flone react minimalist eCommerce template."

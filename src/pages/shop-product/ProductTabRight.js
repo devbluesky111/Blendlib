@@ -12,16 +12,31 @@ import axios from 'axios';
 const ProductTabRight = () => {
   const pathname = window.location.pathname;
   const [product, setProduct] = useState({});
+  const [membership, setMembership] = useState('free');
 
   useEffect(() => {
       const init = async () => {
           let patharr = pathname.split('/');
 
+          let platinum = 'off';
+
+          const user = await axios.post(Backend.URL + '/check_login', {params: 'check_login'}, { withCredentials: true });
+          
+          if(user.data.status === 'success') {
+              let user_data = user.data.data[0][0];
+              setMembership(user_data.membership);
+              if (user_data.membership === 'platinum') {
+                  platinum = 'on';
+              }
+          }
+
           let res;
           
           if (patharr[2]) {
-              res = await axios.post(Backend.URL + '/get_product_id', {id: patharr[2]});
-              setProduct(res.data[0][0]);
+              res = await axios.post(Backend.URL + '/get_product_id', {id: patharr[2], platinum: platinum});
+              if(res.data[0].length > 0) {
+                setProduct(res.data[0][0]);
+              }
           }
 
       }
@@ -31,7 +46,7 @@ const ProductTabRight = () => {
   return (
     <Fragment>
       <MetaTags>
-        <title>Flone | Product Page</title>
+        <title>Sumish | Product Page</title>
         <meta
           name="description"
           content="Product page of flone react minimalist eCommerce template."
@@ -53,6 +68,7 @@ const ProductTabRight = () => {
           spaceBottomClass="pb-100"
           product={product}
           galleryType="rightThumb"
+          membership={membership}
         />
 
         {/* product description tab */}
