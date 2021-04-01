@@ -24,7 +24,7 @@ const IconGroup = ({
 
   useEffect(()=>{
     const init = async () => {
-      const res = await axios.post(Backend.URL + '/check_login', {params: 'check_login'} , { withCredentials: true });
+      const res = await axios.post(Backend.URL + '/check_login', {params: 'check_login'} , { withCredentials: true, headers: {"Access-Control-Allow-Origin": "*"} });
       if(res.data.status === 'success') {
         setLogin(true);
       } else {
@@ -36,7 +36,7 @@ const IconGroup = ({
   }, []);
 
   const logout = async () => {
-    const res = await axios.post(Backend.URL + '/logout', {params: 'logout'} ,{ withCredentials: true });
+    const res = await axios.post(Backend.URL + '/logout', {params: 'logout'}, { withCredentials: true, headers: {"Access-Control-Allow-Origin": "*"} });
     if(res.data.status === 'success') {
       window.location.href = process.env.PUBLIC_URL + "/login-register";
     }

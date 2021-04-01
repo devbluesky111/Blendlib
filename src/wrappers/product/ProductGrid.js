@@ -12,7 +12,7 @@ const ProductGrid = ({
       const init = async () => {
         let platinum = 'off';
 
-        const user = await axios.post(Backend.URL + '/check_login', {params: 'check_login'}, { withCredentials: true });
+        const user = await axios.post(Backend.URL + '/check_login', {params: 'check_login'}, { withCredentials: true, headers: {"Access-Control-Allow-Origin": "*"} });
         
         if(user.data.status === 'success') {
             let user_data = user.data.data[0][0];
@@ -21,7 +21,7 @@ const ProductGrid = ({
             }
         }
 
-        const res = await axios.post(Backend.URL + '/get_products', {platinum: platinum});
+        const res = await axios.post(Backend.URL + '/get_products', {platinum: platinum}, { withCredentials: true, headers: {"Access-Control-Allow-Origin": "*"} });
         setProducts(res.data[0].slice(0, limit));
       }
       init(); 

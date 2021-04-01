@@ -36,7 +36,7 @@ const MyAccount = ({ location }) => {
   const [conpsw, setConPsw] = useState('');
 
   const init = async () => {
-    const res = await axios.post(Backend.URL + '/check_login', {params: 'check_login'}, { withCredentials: true });
+    const res = await axios.post(Backend.URL + '/check_login', {params: 'check_login'}, { withCredentials: true, headers: {"Access-Control-Allow-Origin": "*"} });
     if(res.data.status === 'fail') {
       window.location.href = process.env.PUBLIC_URL + "/";
     } else {
@@ -50,31 +50,31 @@ const MyAccount = ({ location }) => {
 
   const ask_pro = async (e) => {
     e.preventDefault();
-    await axios.post(Backend.URL + '/pending_membership', {id: form.id, type:"ask", value:"pro"}, { withCredentials: true });
+    await axios.post(Backend.URL + '/pending_membership', {id: form.id, type:"ask", value:"pro"}, { withCredentials: true, headers: {"Access-Control-Allow-Origin": "*"} });
     init();
   }
 
   const cancel_pro = async (e) => {
     e.preventDefault();
-    await axios.post(Backend.URL + '/pending_membership', {id: form.id, type:"cancel", value:"pro"}, { withCredentials: true });
+    await axios.post(Backend.URL + '/pending_membership', {id: form.id, type:"cancel", value:"pro"}, { withCredentials: true, headers: {"Access-Control-Allow-Origin": "*"} });
     init();
   }
 
   const ask_platinum = async (e) => {
     e.preventDefault();
-    await axios.post(Backend.URL + '/pending_membership', {id: form.id, type:"ask", value:"platinum"}, { withCredentials: true });
+    await axios.post(Backend.URL + '/pending_membership', {id: form.id, type:"ask", value:"platinum"}, { withCredentials: true, headers: {"Access-Control-Allow-Origin": "*"} });
     init();
   }
 
   const cancel_platinum = async (e) => {
     e.preventDefault();
-    await axios.post(Backend.URL + '/pending_membership', {id: form.id, type:"cancel", value:"platinum"}, { withCredentials: true });
+    await axios.post(Backend.URL + '/pending_membership', {id: form.id, type:"cancel", value:"platinum"}, { withCredentials: true, headers: {"Access-Control-Allow-Origin": "*"} });
     init();
   }
 
   const save_user_data = async (e) => {
     e.preventDefault();
-    const res = await axios.post(Backend.URL + '/edit_user', form, { withCredentials: true });
+    const res = await axios.post(Backend.URL + '/edit_user', form, { withCredentials: true, headers: {"Access-Control-Allow-Origin": "*"} });
     if(res.data.id) {
       swal("Success!", "User data updated successfully!", "success");
     } else {
@@ -84,7 +84,7 @@ const MyAccount = ({ location }) => {
 
   const save_password = async (e) => {
     e.preventDefault();
-    // const res = await axios.post(Backend.URL + '/edit_user', form, { withCredentials: true });
+    
     if(form.password.length < 6) {
       swal("Oops!", "Password must be 6 letter at least!", "error");
       return false;
@@ -93,7 +93,7 @@ const MyAccount = ({ location }) => {
       return false;
     }
 
-    const res = await axios.post(Backend.URL + '/edit_user', form, { withCredentials: true });
+    const res = await axios.post(Backend.URL + '/edit_user', form, { withCredentials: true, headers: {"Access-Control-Allow-Origin": "*"} });
     if(res.data.id) {
       swal("Success!", "Password updated successfully!", "success");
     } else {

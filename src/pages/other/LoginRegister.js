@@ -46,7 +46,7 @@ const LoginRegister = ({ location }) => {
       swal("Oops!", "Please check password fields again!", "info");
       return false;
     }
-    const res = await axios.post(Backend.URL + '/add_user', form);
+    const res = await axios.post(Backend.URL + '/add_user', form, { withCredentials: true, headers: {"Access-Control-Allow-Origin": "*"} });
     if(res.data.status === 'fail') {
       swal("Oops!", "Email duplicated. Please use other email!", "error");
     } else {
@@ -56,7 +56,7 @@ const LoginRegister = ({ location }) => {
 
   const login_user = async (e) => {
     e.preventDefault();
-    const res = await axios.post(Backend.URL + '/login', login, { withCredentials: true });
+    const res = await axios.post(Backend.URL + '/login', login, { withCredentials: true, headers: {"Access-Control-Allow-Origin": "*"} });
     if(res.data.status === 'fail') {
       swal("Sorry!", "Your email and password does not match. \n Please try again!", "warning");
     } else if(res.data.status === 'restrict') {

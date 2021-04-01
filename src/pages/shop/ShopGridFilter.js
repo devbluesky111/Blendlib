@@ -32,7 +32,7 @@ const ShopGridFilter = () => {
 
             let platinum = 'off';
 
-            const user = await axios.post(Backend.URL + '/check_login', {params: 'check_login'}, { withCredentials: true });
+            const user = await axios.post(Backend.URL + '/check_login', {params: 'check_login'}, { withCredentials: true, headers: {"Access-Control-Allow-Origin": "*"} });
             
             if(user.data.status === 'success') {
                 let user_data = user.data.data[0][0];
@@ -44,13 +44,13 @@ const ShopGridFilter = () => {
             let res;
 
             if (patharr[3]) {
-                res = await axios.post(Backend.URL + '/get_products_menu', {main_menu: patharr[2], sub_menu: patharr[3], platinum: platinum});
+                res = await axios.post(Backend.URL + '/get_products_menu', {main_menu: patharr[2], sub_menu: patharr[3], platinum: platinum}, { withCredentials: true, headers: {"Access-Control-Allow-Origin": "*"} });
                 setProducts(res.data[0]);
             } else if (patharr[2]) {
-                res = await axios.post(Backend.URL + '/get_products_menu', {main_menu: patharr[2], platinum: platinum});
+                res = await axios.post(Backend.URL + '/get_products_menu', {main_menu: patharr[2], platinum: platinum}, { withCredentials: true, headers: {"Access-Control-Allow-Origin": "*"} });
                 setProducts(res.data[0]);
             } else {
-                res = await axios.post(Backend.URL + '/get_products', {platinum: platinum});
+                res = await axios.post(Backend.URL + '/get_products', {platinum: platinum}, { withCredentials: true, headers: {"Access-Control-Allow-Origin": "*"} });
                 setProducts(res.data[0]);
             }
 
