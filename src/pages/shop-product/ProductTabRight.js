@@ -12,7 +12,7 @@ import axios from 'axios';
 const ProductTabRight = () => {
   const pathname = window.location.pathname;
   const [product, setProduct] = useState({});
-  const [membership, setMembership] = useState('free');
+  const [membership, setMembership] = useState('no');
 
   useEffect(() => {
       const init = async () => {

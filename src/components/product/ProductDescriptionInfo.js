@@ -11,10 +11,14 @@ const ProductDescriptionInfo = ({
 
   const download = async (target, type) => {
     if (type === 'free') {
-      window.open(
-        Backend.URL + '/blends/' + target,
-        '_blank'
-      );
+      if (membership === 'no') {
+        swal("Oops!", "You have to login or sign up to download this file!", "error");
+      } else {
+        window.open(
+          Backend.URL + '/blends/' + target,
+          '_blank'
+        );
+      }
     } else if (type === 'pro') {
       if (membership === 'free') {
         swal("Oops!", "You have to upgrade your membership to pro to download this file!", "error");
