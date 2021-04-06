@@ -20,7 +20,8 @@ const ProductTabRight = lazy(() =>
 );
 
 // blog pages
-const BlogRightSidebar = lazy(() => import("./pages/blog/BlogRightSidebar"));
+const Blog = lazy(() => import("./pages/blog/BlogNoSidebar"));
+const BlogDetail = lazy(() => import("./pages/blog/BlogDetailsStandard"));
 
 // other pages
 const About = lazy(() => import("./pages/other/About"));
@@ -90,7 +91,12 @@ const App = props => {
                 {/* Blog pages */}
                 <Route
                   path={process.env.PUBLIC_URL + "/blog"}
-                  component={BlogRightSidebar}
+                  component={Blog}
+                />
+
+                <Route
+                  path={process.env.PUBLIC_URL + "/blog-detail/:id"}
+                  component={BlogDetail}
                 />
 
                 {/* Other pages */}
