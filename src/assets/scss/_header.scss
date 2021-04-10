@@ -751,6 +751,47 @@
                 }
             }
         } 
+        .search-lang {
+            background: #ffffff none repeat scroll 0 0;
+            box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1);
+            min-width: 125px;
+            max-width: 150px;
+            padding: 15px;
+            position: absolute;
+            right: 0;
+            top: 193%;
+            z-index: 99;
+            visibility: hidden;
+            opacity: 0;
+            transform: rotateX(90deg);
+            transform-origin: center top 0;
+            transition: all 0.5s ease 0s;
+            &.active{
+                visibility: visible;
+                opacity: 1;
+                transform: rotateX(0deg);
+            }
+            @media #{$md-layout}{
+                top: 154%;
+            }
+            @media #{$xs-layout}{
+                right: -105px;
+                top: 154%;
+                min-width: 260px;
+            }
+            form {
+                position: relative;
+                input {
+                    border: 1px solid #d3d3d3;
+                    outline: medium none;
+                    padding: 5px 72px 5px 15px;
+                    transition: all 0.4s ease 0s;
+                    width: 100%;
+                    color: #000;
+                    background: transparent;
+                }
+            }
+        } 
     }
 }
 .stick {

@@ -59,6 +59,37 @@ const IconGroup = ({
           </form>
         </div>
       </div>
+
+      <div className="same-style header-search d-none d-lg-block">
+        <button className="search-active" onClick={e => handleClick(e)}>
+          <i className="pe-7s-global" />
+        </button>
+        <div className="search-lang">
+          <ul>
+            <li>
+              <Link to="#">
+                English
+              </Link>
+            </li>
+            <li>
+              <Link to="#">
+                French
+              </Link>
+            </li>
+            <li>
+              <Link to="#">
+                Germany
+              </Link>
+            </li>
+            <li>
+              <Link to="#">
+                Arabic
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <div className="same-style account-setting d-block d-lg-block">
         <button
           className="account-setting-active"
