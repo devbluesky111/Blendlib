@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Swiper from "react-id-swiper";
-import heroSliderData from "../../data/hero-sliders/hero-slider-sumish.json";
 import HeroSliderSumishSingle from "../../components/hero-slider/HeroSliderSumishSingle.js";
+import axios from "axios";
+import Backend from "../../@utils/BackendUrl";
 
 const HeroSliderSumish = () => {
+  const [cover, setCover] = useState([]);
+  useEffect(() => {
+      const init = async () => {
+          const res = await axios.post(Backend.URL + '/get_covers', { withCredentials: true, headers: {"Access-Control-Allow-Origin": "*"} });
+          setCover(res.data);
+      }
+      init();
+  },[]);
   const params = {
     effect: "fade",
-    loop: true,
+    loop: false,
     speed: 1000,
     autoplay: {
       delay: 5000,
@@ -33,8 +42,8 @@ const HeroSliderSumish = () => {
     <div className="slider-area">
       <div className="slider-active-2 nav-style-3">
         <Swiper {...params}>
-          {heroSliderData &&
-            heroSliderData.map((single, key) => {
+          {cover &&
+            cover.map((single, key) => {
               return (
                 <HeroSliderSumishSingle
                   sliderClassName="swiper-slide"

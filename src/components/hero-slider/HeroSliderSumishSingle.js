@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { Link } from "react-router-dom";
+import Backend from "../../@utils/BackendUrl";
 
 const HeroSliderFourteenSingle = ({ data, sliderClassName }) => {
   return (
@@ -8,7 +9,7 @@ const HeroSliderFourteenSingle = ({ data, sliderClassName }) => {
       className={`slider-height-7 d-flex align-items-center bg-img ${
         sliderClassName ? sliderClassName : ""
       }`}
-      style={{ backgroundImage: `url(${process.env.PUBLIC_URL + data.image})` }}
+      style={{ backgroundImage: `url(${Backend.URL + '/coverimages/' + data.cover_image})` }}
     >
       <div className="container">
         <div className="row">
@@ -18,8 +19,7 @@ const HeroSliderFourteenSingle = ({ data, sliderClassName }) => {
               <p className="animated">{data.subtitle}</p>
               <div className="slider-btn-5 btn-hover">
                 <Link
-                  className="animated"
-                  to={process.env.PUBLIC_URL + data.url}
+                  to={process.env.PUBLIC_URL + '/collection'}
                 >
                   Collections
                 </Link>
