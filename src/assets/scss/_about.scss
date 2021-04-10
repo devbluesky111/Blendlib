@@ -8,16 +8,42 @@
     margin: 0;
     letter-spacing: 0.3px;
   }
-  h1 {
-    font-size: 30px;
-    font-weight: 500;
+  h1{
+    font-size: 150px;
+    font-weight: 700px;
+    color: transparent;
+    background: linear-gradient(-90deg, #ffb87d 5%, #ff3d99 95%);
+    background-clip: text;
+    box-sizing: border-box;
+    padding: 50px;
+    @media #{$xs-layout} {
+      font-size: 120px;
+    }
+  }
+  h1 sup {
+    font-size: 0.33em;
+    font-weight: 700;
+    margin-left: -40px;
+    vertical-align: super;
+    color: transparent;
+    background: linear-gradient(-90deg, #ffb87d 5%, #ff3d99 95%);
+    background-clip: text;
+    box-sizing: border-box;
+    @media #{$sm-layout} {
+      top: -0.5em;
+    }
+  }
+
+  h2 {
+    font-size: 40px;
+    font-weight: 700;
     letter-spacing: 0.3px;
     margin: 8px 0 30px;
     color: #433f3f;
     position: relative;
     display: inline-block;
     padding: 0 0 23px;
-    line-height: 1;
+    line-height: 1.4;
     &:before {
       position: absolute;
       background-color: #070508;

@@ -22,63 +22,19 @@ const TabProductNineteen = ({
       <div className="container">
         {/* section title */}
         <SectionTitleSeven
-          titleText="Products Collection"
+          titleText="Newly Added"
           positionClass="text-center"
           borderClass="bottom-border"
           spaceClass="mb-30"
         />
-        <Tab.Container defaultActiveKey="bestSeller">
-          <Nav
-            variant="pills"
-            className={`product-tab-list-6 justify-content-center mb-60 ${
-              productTabClass ? productTabClass : ""
-            }`}
-          >
-            <Nav.Item>
-              <Nav.Link eventKey="newArrival">
-                <h4>New Arrivals</h4>
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="bestSeller">
-                <h4>Best Sellers</h4>
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="saleItems">
-                <h4>Sale Items</h4>
-              </Nav.Link>
-            </Nav.Item>
-          </Nav>
+        <Tab.Container defaultActiveKey="newArrival">
           <Tab.Content>
             <Tab.Pane eventKey="newArrival">
               <div className="row">
                 <ProductGridTen
                   category={category}
                   type="new"
-                  limit={6}
-                  spaceBottomClass="mb-25"
-                  productGridStyleClass={productGridStyleClass}
-                />
-              </div>
-            </Tab.Pane>
-            <Tab.Pane eventKey="bestSeller">
-              <div className="row">
-                <ProductGridTen
-                  category={category}
-                  type="bestSeller"
-                  limit={6}
-                  spaceBottomClass="mb-25"
-                  productGridStyleClass={productGridStyleClass}
-                />
-              </div>
-            </Tab.Pane>
-            <Tab.Pane eventKey="saleItems">
-              <div className="row">
-                <ProductGridTen
-                  category={category}
-                  type="saleItems"
-                  limit={6}
+                  limit={3}
                   spaceBottomClass="mb-25"
                   productGridStyleClass={productGridStyleClass}
                 />

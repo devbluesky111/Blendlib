@@ -1,7 +1,17 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Backend from "../../@utils/BackendUrl";
+import axios from "axios";
 
 const SectionTitleWithText = ({ spaceTopClass, spaceBottomClass }) => {
+  const [count, setCount] = useState([]);
+  useEffect(() => {
+    const init = async () => {
+      const res = await axios.post(Backend.URL + '/get_count', {data: 0}, { withCredentials: true, headers: {"Access-Control-Allow-Origin": "*"} });
+      setCount(res.data.count);
+    }
+    init();
+  }, []);
   return (
     <div
       className={`welcome-area ${spaceTopClass ? spaceTopClass : ""} ${
@@ -10,7 +20,8 @@ const SectionTitleWithText = ({ spaceTopClass, spaceBottomClass }) => {
     >
       <div className="container">
         <div className="welcome-content text-center">
-          <h1>Welcome To Sumish</h1>
+          <h1>{count} <sup>+</sup></h1>
+          <h2>Welcome To Sumish</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
             eiusmod tempor incididunt labor et dolore magna aliqua. Ut enim ad
