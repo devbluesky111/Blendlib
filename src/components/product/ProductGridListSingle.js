@@ -17,6 +17,13 @@ const ProductGridListSingle = ({
   var yyyy = today.getFullYear();
   today = yyyy + '-' + mm + '-' + dd;
 
+  const download_free_one = async (target) => {
+    window.open(
+      Backend.URL + '/blends/' + target,
+      '_blank'
+    );
+  }
+
   return (
     <Fragment>
       <div
@@ -73,20 +80,16 @@ const ProductGridListSingle = ({
                   <i className="pe-7s-like" />
                 </button>
               </div>
-              <div className="pro-same-action pro-cart">
-                <button
-                  className={wishlistItem ? "active" : ""}
-                  // disabled={wishlistItem !== undefined}
-                  title={
-                    wishlistItem
-                      ? "Added to wishlist"
-                      : "Add to wishlist"
-                  }
-                  onClick={() => {console.log('You are trying to download')}}
-                >
-                  <i className="fa fa-download" />
-                </button>
-              </div>
+              {product.free_blend?
+                <div className="pro-same-action pro-cart">
+                  <button
+                    className={wishlistItem ? "active" : ""}
+                    onClick={() => {download_free_one(product.free_blend.substring(0, product.free_blend.indexOf("|")))}}
+                  >
+                    <i className="fa fa-download" />
+                  </button>
+                </div> : <></>
+              }
               <div className="pro-same-action pro-quickview">
                 <button onClick={() => setModalShow(true)} title="Quick View">
                   <i className="pe-7s-look" />
