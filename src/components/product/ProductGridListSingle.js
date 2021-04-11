@@ -74,12 +74,18 @@ const ProductGridListSingle = ({
                 </button>
               </div>
               <div className="pro-same-action pro-cart">
-                <a
-                  href={process.env.PUBLIC_URL + "/product/" + product.id}
-                  rel="noopener noreferrer"
+                <button
+                  className={wishlistItem ? "active" : ""}
+                  // disabled={wishlistItem !== undefined}
+                  title={
+                    wishlistItem
+                      ? "Added to wishlist"
+                      : "Add to wishlist"
+                  }
+                  onClick={() => {console.log('You are trying to download')}}
                 >
-                  {" "}Download{" "}
-                </a>
+                  <i className="fa fa-download" />
+                </button>
               </div>
               <div className="pro-same-action pro-quickview">
                 <button onClick={() => setModalShow(true)} title="Quick View">

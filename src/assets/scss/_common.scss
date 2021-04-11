@@ -90,7 +90,7 @@ button {
   line-height: inherit;
   text-decoration: none;
   cursor: pointer;
-  color: #000;
+  color: $theme-color;
 }
 
 a,
@@ -165,7 +165,7 @@ ul {
 }
 
 a:hover {
-  color: $theme-color;
+  color: $hover-color;
 }
 
 /*************************
@@ -1672,7 +1672,7 @@ textarea:focus {
     transition: all 0.5s ease-in-out 0s;
     &:hover {
       border: 1px solid $theme-color;
-      color: #fff;
+      color: $hover-color;
     }
     &::before,
     &::after {

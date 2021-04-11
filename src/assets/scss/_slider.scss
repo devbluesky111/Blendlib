@@ -921,15 +921,16 @@
 .slider-btn-5 {
     a{
         font-size: 16px;
-        color: #010101;
-        background-color: #fff;
+        color: #FFF;
+        background-color: $theme-color;
         display: inline-block;
         line-height: 1;
         padding: 17px 40px 18px; 
         transition: all .3s ease-in-out 0s;
         &:hover {
             border: none;
-            color: #fff;
+            color: #FFF;
+            background-color: $hover-color;
         }
     }
 }

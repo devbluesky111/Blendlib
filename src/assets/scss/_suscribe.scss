@@ -101,15 +101,14 @@
         color: #fff;
         background: none;
         border: none;
-        background-color: #070508;
+        background-color: $theme-color;
         line-height: 1;
         font-weight: 500;
         letter-spacing: 2px;
         text-transform: uppercase;
         padding: 17px 55px;
-        border-radius: 5px;
         &:hover {
-          background-color: $theme-color;
+          background-color: $hover-color;
         }
       }
       &.red-subscribe {

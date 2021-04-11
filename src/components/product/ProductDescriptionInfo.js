@@ -70,7 +70,7 @@ const ProductDescriptionInfo = ({
             {product.pro_blend ? product.pro_blend.split('|').map((pb, _i)=>{
               return (
                 <div className="mt-2" key={_i}>
-                  <Link to="#" onClick={() => {download(pb, 'pro')}} > <Badge variant="danger" style={{color:'white'}}> Pro </Badge>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i className="fa fa-download"></i> {pb.split('/').pop()}  </Link>
+                  <Link to="#" onClick={() => {download(pb, 'pro')}} > <Badge variant="danger" style={{color:'white'}}> &nbsp;Pro&nbsp;&nbsp; </Badge>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i className="fa fa-download"></i> {pb.split('/').pop()}  </Link>
                 </div>
               )
             }) : <></>}
