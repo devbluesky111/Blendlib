@@ -3,15 +3,15 @@ import React from "react";
 import {
   getUniqueCategories,
   getUniqueTags,
-  getUniqueColors,
-  getProductsUniqueSizes,
+  // getUniqueColors,
+  // getProductsUniqueSizes,
   setActiveSort
 } from "../../helpers/product";
 
 const ShopTopFilter = ({ products, getSortParams }) => {
   const uniqueCategories = getUniqueCategories(products);
-  const uniqueColors = getUniqueColors(products);
-  const uniqueSizes = getProductsUniqueSizes(products);
+  // const uniqueColors = getUniqueColors(products);
+  // const uniqueSizes = getProductsUniqueSizes(products);
   const uniqueTags = getUniqueTags(products);
 
   return (
@@ -46,7 +46,7 @@ const ShopTopFilter = ({ products, getSortParams }) => {
           </div>
 
           {/* Product Filter */}
-          <div className="col-md-3 col-sm-6 col-xs-12 mb-30">
+          {/* <div className="col-md-3 col-sm-6 col-xs-12 mb-30">
             <div className="product-filter">
               <h5>Color</h5>
               {uniqueColors ? (
@@ -70,9 +70,9 @@ const ShopTopFilter = ({ products, getSortParams }) => {
                 "No colors found"
               )}
             </div>
-          </div>
+          </div> */}
           {/* Product Filter */}
-          <div className="col-md-3 col-sm-6 col-xs-12 mb-30">
+          {/* <div className="col-md-3 col-sm-6 col-xs-12 mb-30">
             <div className="product-filter">
               <h5>Size</h5>
               {uniqueSizes ? (
@@ -97,7 +97,7 @@ const ShopTopFilter = ({ products, getSortParams }) => {
                 "No sizes found"
               )}
             </div>
-          </div>
+          </div> */}
           {/* Product Filter */}
           <div className="col-md-3 col-sm-6 col-xs-12 mb-30">
             <div className="product-filter product-filter--tag">

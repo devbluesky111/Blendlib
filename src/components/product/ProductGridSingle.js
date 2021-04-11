@@ -76,7 +76,7 @@ const ProductGridSingle = ({
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  {" "}Download{" "}
+                  {" "}<i className="fa fa-download"></i> {" "}
                 </a>
               </div>
               <div className="pro-same-action pro-quickview">

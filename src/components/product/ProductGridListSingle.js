@@ -84,7 +84,7 @@ const ProductGridListSingle = ({
                 <div className="pro-same-action pro-cart">
                   <button
                     className={wishlistItem ? "active" : ""}
-                    onClick={() => {download_free_one(product.free_blend.substring(0, product.free_blend.indexOf("|")))}}
+                    onClick={() => {download_free_one(product.free_blend.split("|")[0])}}
                   >
                     <i className="fa fa-download" />
                   </button>
