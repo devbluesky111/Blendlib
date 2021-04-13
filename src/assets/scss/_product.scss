@@ -269,6 +269,9 @@
 
         color: #fff;
         border-radius: 3px;
+        &.gray {
+          background-color: $hover-color;
+        }
         &.pink {
           background-color: #fa6bff;
         }
@@ -1515,6 +1518,9 @@
         &.purple {
           color: $theme-color;
         }
+        &.gray {
+          color: $hover-color;
+        }
 
         &:last-child {
           margin-bottom: 0;
@@ -1860,6 +1866,9 @@
 
         color: #fff;
         border-radius: 3px;
+        &.gray {
+          background-color: $hover-color;
+        }
         &.purple {
           background-color: $theme-color;
         }
@@ -2303,6 +2312,9 @@
 
       color: #fff;
       border-radius: 3px;
+      &.gray {
+        background-color: $hover-color;
+      }
       &.purple {
         background-color: $theme-color;
       }
