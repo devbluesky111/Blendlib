@@ -44,7 +44,7 @@ const ProductGridSingle = ({
             </Link>
             <div className="product-img-badges">          
               {product.created && product.created.includes(today) ? (
-                  <span className="purple">New</span>
+                  <span className="gray">New</span>
               ) : (
                 ""
               )}

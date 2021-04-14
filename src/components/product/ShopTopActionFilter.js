@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React, { Fragment } from "react";
-import ShopTopFilter from "./ShopTopFilter";
-import { toggleShopTopFilter } from "../../helpers/product";
+// import ShopTopFilter from "./ShopTopFilter";
+// import { toggleShopTopFilter } from "../../helpers/product";
 
 const ShopTopActionFilter = ({
   getFilterSortParams,
@@ -28,15 +28,15 @@ const ShopTopActionFilter = ({
           </p>
         </div>
 
-        <div className="filter-active">
+        {/* <div className="filter-active">
           <button onClick={e => toggleShopTopFilter(e)}>
             <i className="fa fa-plus"></i> filter
           </button>
-        </div>
+        </div> */}
       </div>
 
       {/* shop top filter */}
-      <ShopTopFilter products={products} getSortParams={getSortParams} />
+      {/* <ShopTopFilter products={products} getSortParams={getSortParams} /> */}
     </Fragment>
   );
 };

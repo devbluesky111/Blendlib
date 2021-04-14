@@ -5,18 +5,19 @@ import { BreadcrumbsItem } from 'react-breadcrumbs-dynamic';
 import { getSortedProducts } from '../../helpers/product';
 import LayoutOne from '../../layouts/LayoutOne';
 import Breadcrumb from '../../wrappers/breadcrumb/Breadcrumb';
-import ShopTopbarFilter from '../../wrappers/product/ShopTopbarFilter';
+// import ShopTopbarFilter from '../../wrappers/product/ShopTopbarFilter';
+import ShopMyTagFilter from "../../components/product/ShopMyTagFilter";
 import ShopProducts from '../../wrappers/product/ShopProducts';
 import Backend from '../../@utils/BackendUrl';
 import axios from 'axios';
 
 const ShopGridFilter = () => {
     const [products, setProducts] = useState([]);
-    const [layout, setLayout] = useState('grid three-column');
-    const [sortType, setSortType] = useState('');
-    const [sortValue, setSortValue] = useState('');
-    const [filterSortType, setFilterSortType] = useState('');
-    const [filterSortValue, setFilterSortValue] = useState('');
+    const [layout] = useState('grid three-column');
+    const [sortType] = useState('');
+    const [sortValue] = useState('');
+    const [filterSortType] = useState('');
+    const [filterSortValue] = useState('');
     const [offset, setOffset] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
     const [currentData, setCurrentData] = useState([]);
@@ -58,20 +59,6 @@ const ShopGridFilter = () => {
         init(); 
     }, [pathname]);
 
-    const getLayout = (layout) => {
-        setLayout(layout)
-    }
-
-    const getSortParams = (sortType, sortValue) => {
-        setSortType(sortType);
-        setSortValue(sortValue);
-    }
-
-    const getFilterSortParams = (sortType, sortValue) => {
-        setFilterSortType(sortType);
-        setFilterSortValue(sortValue);
-    }
-
     useEffect(() => {
         let sortedProducts = getSortedProducts(products, sortType, sortValue);
         const filterSortedProducts = getSortedProducts(sortedProducts, filterSortType, filterSortValue);
@@ -79,6 +66,10 @@ const ShopGridFilter = () => {
         setSortedProducts(sortedProducts);
         setCurrentData(sortedProducts.slice(offset, offset + pageLimit));
     }, [offset, products, sortType, sortValue, filterSortType, filterSortValue ]);
+
+    useEffect(() => {
+        setCurrentData(sortedProducts);
+    }, [sortedProducts]);
 
     return (
         <Fragment>
@@ -99,10 +90,10 @@ const ShopGridFilter = () => {
                         <div className="row">
                             <div className="col-lg-12">
                                 {/* shop topbar filter */}
-                                <ShopTopbarFilter getLayout={getLayout} getFilterSortParams={getFilterSortParams} productCount={products.length} sortedProductCount={currentData.length} products={products} getSortParams={getSortParams}/>
-
+                                {/* <ShopTopbarFilter getLayout={getLayout} getFilterSortParams={getFilterSortParams} productCount={products.length} sortedProductCount={currentData.length} products={products} getSortParams={getSortParams}/> */}
+                                <ShopMyTagFilter setSortedProducts={setSortedProducts} />
                                 {/* shop page content default */}
-                                <ShopProducts layout={layout} products={currentData} />
+                                <ShopProducts layout={layout} products={currentData}/>
 
                                 {/* shop product pagination */}
                                 <div className="pro-pagination-style text-center mt-30">

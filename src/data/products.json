@@ -375,7 +375,7 @@
     "name": "Lorem ipsum chair one",
     "price": 15.6,
     "discount": 0,
-    "new": false,
+    "new": true,
     "rating": 4,
     "saleCount": 90,
     "category": ["furniture"],
