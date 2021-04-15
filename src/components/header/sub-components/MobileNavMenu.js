@@ -30,7 +30,7 @@ const MobileNavMenu = ({ strings }) => {
       <ul>        
         <li className="menu-item-has-children">
           <Link to={process.env.PUBLIC_URL + "/collection"}>
-            {strings["collection"]}
+            {`Collection`}
           </Link>
           <span className='menu-expand' onClick={sideMenuExpand}><i></i></span>
           <ul className="sub-menu">
@@ -64,7 +64,7 @@ const MobileNavMenu = ({ strings }) => {
         </li>
         <li className="menu-item-has-children">
           <Link to={process.env.PUBLIC_URL + "/blog"}>
-            {strings["blog"]}
+            {`Blog`}
           </Link>
         </li>
         <li>
