@@ -32,7 +32,7 @@ const ShopMyTagFilter = ({setSortedProducts}) => {
             const resp = await axios.post(Backend.URL + '/get_menu_o', {data: 0}, { withCredentials: true, headers: {"Access-Control-Allow-Origin": "*"} });
             setMenus(resp.data);
             const respo = await axios.post(Backend.URL + '/get_products', {platinum: platinum}, { withCredentials: true, headers: {"Access-Control-Allow-Origin": "*"} });
-            setProducts(respo.data[0]);
+            setProducts(respo.data);
         }
         init();
     }, []);

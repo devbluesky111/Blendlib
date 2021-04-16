@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useToasts } from "react-toast-notifications";
 import { getDiscountPrice } from "../../helpers/product";
 import ProductModal from "./ProductModal";
+import Backend from '../../@utils/BackendUrl';
 
 const ProductGridSingleTen = ({
   product,
@@ -46,18 +47,14 @@ const ProductGridSingleTen = ({
             <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
               <img
                 className="default-img"
-                src={process.env.PUBLIC_URL + product.image[0]}
-                alt=""
+                src={Backend.URL + '/images/' + product.p_image}
+                alt="product_image"
               />
-              {product.image.length > 1 ? (
-                <img
-                  className="hover-img"
-                  src={process.env.PUBLIC_URL + product.image[1]}
-                  alt=""
-                />
-              ) : (
-                ""
-              )}
+              <img
+                className="hover-img"
+                src={Backend.URL + '/images/' + product.featured_images.split('|')[0]}
+                alt="featured_image"
+              />
             </Link>
             {product.discount || product.new ? (
               <div className="product-img-badges">
