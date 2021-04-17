@@ -5,7 +5,7 @@ import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import BlogSidebar from "../../wrappers/blog/BlogSidebar";
-import BlogComment from "../../wrappers/blog/BlogComment";
+// import BlogComment from "../../wrappers/blog/BlogComment";
 import BlogPost from "../../wrappers/blog/BlogPost";
 
 const BlogDetailsStandard = ({ location }) => {
@@ -22,7 +22,7 @@ const BlogDetailsStandard = ({ location }) => {
       </MetaTags>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>
-        Blog Post
+        Blog Detail
       </BreadcrumbsItem>
       <LayoutOne headerTop="visible">
         {/* breadcrumb */}
@@ -36,7 +36,7 @@ const BlogDetailsStandard = ({ location }) => {
                   <BlogPost />
 
                   {/* blog post comment */}
-                  <BlogComment />
+                  {/* <BlogComment /> */}
                 </div>
               </div>
               <div className="col-lg-3">
