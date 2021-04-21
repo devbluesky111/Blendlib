@@ -17,6 +17,13 @@ const ProductGridSingle = ({
   var yyyy = today.getFullYear();
   today = yyyy + '-' + mm + '-' + dd;
 
+  const download_free_one = async (target) => {
+    window.open(
+      Backend.URL + '/blends/' + target,
+      '_blank'
+    );
+  }
+
   return (
     <Fragment>
       <div
@@ -71,13 +78,12 @@ const ProductGridSingle = ({
                 </button>
               </div>
               <div className="pro-same-action pro-cart">
-                <a
-                  href={process.env.PUBLIC_URL + "/product/" + product.id}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  {" "}<i className="fa fa-download"></i> {" "}
-                </a>
+                  <button
+                    className={wishlistItem ? "active" : ""}
+                    onClick={() => {download_free_one(product.free_blend.split("|")[0])}}
+                  >
+                    <i className="fa fa-download" />
+                  </button>
               </div>
               <div className="pro-same-action pro-quickview">
                 <button onClick={() => setModalShow(true)} title="Quick View">
