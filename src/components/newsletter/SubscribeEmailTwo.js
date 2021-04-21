@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
 import React from "react";
 import MailchimpSubscribe from "react-mailchimp-subscribe";
-
+import Backend from '../../@utils/BackendUrl';
+import axios from 'axios';
 const CustomForm = ({
   status,
   message,
@@ -16,7 +17,9 @@ const CustomForm = ({
       onValidated({
         EMAIL: email.value
       });
-
+    axios.post(Backend.URL + '/subscribe', {email: email.value}, { withCredentials: true, headers: {"Access-Control-Allow-Origin": "*"} }).catch(function(err){
+      console.log(err);
+    });
     email.value = "";
   };
 
@@ -28,7 +31,7 @@ const CustomForm = ({
             className="email"
             ref={node => (email = node)}
             type="email"
-            placeholder=""
+            placeholder="Type your email here and click the SUBSCRIBE button below"
             required
           />
         </div>

@@ -64,16 +64,11 @@ function ProductModal(props) {
   useEffect(() => {
     const init = async () => {
 
-        let platinum = 'off';
-
         const user = await axios.post(Backend.URL + '/check_login', {params: 'check_login'}, { withCredentials: true, headers: {"Access-Control-Allow-Origin": "*"} });
         
         if(user.data.status === 'success') {
             let user_data = user.data.data[0][0];
             setMembership(user_data.membership);
-            if (user_data.membership === 'platinum') {
-                platinum = 'on';
-            }
         }
     }
     init(); 

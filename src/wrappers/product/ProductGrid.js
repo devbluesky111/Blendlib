@@ -22,7 +22,7 @@ const ProductGrid = ({
         }
 
         const res = await axios.post(Backend.URL + '/get_products', {platinum: platinum}, { withCredentials: true, headers: {"Access-Control-Allow-Origin": "*"} });
-        setProducts(res.data[0].slice(0, limit));
+        setProducts(res.data.slice(0, limit));
       }
       init(); 
   }, [limit]);
