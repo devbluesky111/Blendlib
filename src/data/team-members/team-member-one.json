@@ -2,36 +2,36 @@
   {
     "id": "1",
     "image": "/assets/img/team/team-1.jpg",
-    "fbLink": "//www.facebook.com",
+    "fbLink": "https://www.facebook.com/blend.lib",
     "twitterLink": "//www.twitter.com",
-    "instagramLink": "//www.instagram.com",
+    "instagramLink": "https://www.instagram.com/blend.lib",
     "name": "Mr.Mike Banding",
     "position": "Manager"
   },
   {
     "id": "2",
     "image": "/assets/img/team/team-3.jpg",
-    "fbLink": "//www.facebook.com",
+    "fbLink": "https://www.facebook.com/blend.lib",
     "twitterLink": "//www.twitter.com",
-    "instagramLink": "//www.instagram.com",
+    "instagramLink": "https://www.instagram.com/blend.lib",
     "name": "Mr.Peter Pan",
     "position": "Developer"
   },
   {
     "id": "3",
     "image": "/assets/img/team/team-2.jpg",
-    "fbLink": "//www.facebook.com",
+    "fbLink": "https://www.facebook.com/blend.lib",
     "twitterLink": "//www.twitter.com",
-    "instagramLink": "//www.instagram.com",
+    "instagramLink": "https://www.instagram.com/blend.lib",
     "name": "Ms.Sophia",
     "position": "Designer"
   },
   {
     "id": "4",
     "image": "/assets/img/team/team-4.jpg",
-    "fbLink": "//www.facebook.com",
+    "fbLink": "https://www.facebook.com/blend.lib",
     "twitterLink": "//www.twitter.com",
-    "instagramLink": "//www.instagram.com",
+    "instagramLink": "https://www.instagram.com/blend.lib",
     "name": "Mr.John Lee",
     "position": "Chairman"
   }

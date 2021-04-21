@@ -112,7 +112,7 @@ const FooterThree = ({
                   <ul>
                     <li>
                       <a
-                        href="//www.facebook.com"
+                        href="https://www.facebook.com/blend.lib"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -130,7 +130,7 @@ const FooterThree = ({
                     </li>
                     <li>
                       <a
-                        href="//www.instagram.com"
+                        href="https://www.instagram.com/blend.lib"
                         target="_blank"
                         rel="noopener noreferrer"
                       >

@@ -66,7 +66,7 @@ const FooterTwo = ({
           <div className="footer-social">
             <ul>
               <li>
-                <a href="//www.facebook.com">
+                <a href="https://www.facebook.com/blend.lib">
                   <i className="fa fa-facebook" />
                 </a>
               </li>

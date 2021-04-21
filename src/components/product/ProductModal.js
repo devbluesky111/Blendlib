@@ -225,22 +225,22 @@ function ProductModal(props) {
                     </a>
                   </li>
                   <li>
-                    <a href="//www.instagram.com">
+                    <a href="https://www.instagram.com/blend.lib">
                       <i className="fa fa-instagram" />
                     </a>
                   </li>
                   <li>
-                    <a href="//www.telegram.com">
+                    <a href="t.me/blend.lib">
                       <i className="fa fa-paper-plane" />
                     </a>
                   </li>
                   <li>
-                    <a href="//www.whatsapp.com">
+                    <a href="https://chat.whatsapp.com/CEH5XuK5r3sJPnFEfYVepw">
                       <i className="fa fa-whatsapp" />
                     </a>
                   </li>
                   <li>
-                    <a href="mailto:info@yourdomain.com">
+                    <a href="mailto:hello@blendlib.com">
                       <i className="fa fa-envelope" />
                     </a>
                   </li>

@@ -58,7 +58,9 @@ const FooterSumish = ({
               />
             </Link>
           </div>
-          <p>Call Us 3965410</p>
+          <a href="m.me/blend.lib">
+            <p>Call Us</p>
+          </a>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -67,27 +69,27 @@ const FooterSumish = ({
           <div className="footer-social">
             <ul>
               <li>
-                <a href="//www.facebook.com">
+                <a href="https://www.facebook.com/blend.lib">
                   <i className="fa fa-facebook" />
                 </a>
               </li>
               <li>
-                <a href="//www.instagram.com">
+                <a href="https://www.instagram.com/blend.lib">
                   <i className="fa fa-instagram" />
                 </a>
               </li>
               <li>
-                <a href="//www.telegram.com">
+                <a href="t.me/blend.lib">
                   <i className="fa fa-paper-plane" />
                 </a>
               </li>
               <li>
-                <a href="//www.whatsapp.com">
+                <a href="https://chat.whatsapp.com/CEH5XuK5r3sJPnFEfYVepw">
                   <i className="fa fa-whatsapp" />
                 </a>
               </li>
               <li>
-                <a href="mailto:info@yourdomain.com">
+                <a href="mailto:hello@blendlib.com">
                   <i className="fa fa-envelope" />
                 </a>
               </li>

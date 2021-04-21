@@ -4,13 +4,15 @@ const HeaderSocial = () => {
   return (
     <div className="side-social">
       <div className="pt-4 pb-4">
-        <p>Call Us 3965410</p>
+        <a href="m.me/blend.lib">
+          <p>Call Us</p>
+        </a>
       </div>
       <ul>
         <li>
           <a
             className="facebook"
-            href="//www.facebook.com"
+            href="https://www.facebook.com/blend.lib"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -20,7 +22,7 @@ const HeaderSocial = () => {
         <li>
           <a
             className="instagram"
-            href="//www.instagram.com"
+            href="https://www.instagram.com/blend.lib"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -30,7 +32,7 @@ const HeaderSocial = () => {
         <li>
           <a
             className="telegram"
-            href="//www.telegram.com"
+            href="t.me/blend.lib"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -40,7 +42,7 @@ const HeaderSocial = () => {
         <li>
           <a
             className="whatsapp"
-            href="//www.whatsapp.com"
+            href="https://chat.whatsapp.com/CEH5XuK5r3sJPnFEfYVepw"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -50,7 +52,7 @@ const HeaderSocial = () => {
         <li>
           <a
             className="email"
-            href="mailto:info@yourdomain.com"
+            href="mailto:hello@blendlib.com"
             target="_blank"
             rel="noopener noreferrer"
           >

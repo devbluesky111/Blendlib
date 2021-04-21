@@ -197,17 +197,17 @@ const Contact = ({ location }) => {
                       </div>
                     </Tab.Pane>
                     <Tab.Pane eventKey="platinum">
-                      <div className="contact-form">
-                        <div className="contact-title mb-30">
+                      <div className="contact-form platinum-size">
+                        <div className="contact-title mt-30 ml-20 mb-30">
                           <h2>Blender Guide and Tool</h2>
                         </div>
                         <div className="row mb-30 ml-10">
-                          <h4>What are the guidelines for ..........</h4>
-                          <p>You can what ever you want, this is an example test, final text to come later</p>
-                        </div>
-                        <div className="row ml-10">
-                          <h4>What are the guidelines for using our .........</h4>
-                          <p>......... this is a simple text to be developed later</p>
+                          <iframe
+                            title="Blender Guide Google.doc link"
+                            width="100%"
+                            height="500"
+                            src="https://docs.google.com/document/d/e/2PACX-1vR7BS0TKROKQ8kXUoKTDGh3r_qVuMX1a9DhD740dZxWGkPEqZ8YyI00UGt4iUzz5WLWmFhzHyyk2mNA/pub?embedded=true">
+                          </iframe>
                         </div>
                       </div>
                     </Tab.Pane>
