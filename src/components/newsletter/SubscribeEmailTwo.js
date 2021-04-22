@@ -3,6 +3,7 @@ import React from "react";
 import MailchimpSubscribe from "react-mailchimp-subscribe";
 import Backend from '../../@utils/BackendUrl';
 import axios from 'axios';
+import swal from 'sweetalert';
 const CustomForm = ({
   status,
   message,
@@ -17,8 +18,16 @@ const CustomForm = ({
       onValidated({
         EMAIL: email.value
       });
-    axios.post(Backend.URL + '/subscribe', {email: email.value}, { withCredentials: true, headers: {"Access-Control-Allow-Origin": "*"} }).catch(function(err){
+    axios.post(Backend.URL + '/subscribe', {email: email.value}, { withCredentials: true, headers: {"Access-Control-Allow-Origin": "*"} }).then((res) => {
+      if(res.data.status === 'success') {
+        swal("Subscribed!", "You have just enrolled on this website!", "success");
+      } else {
+        swal("Oops!", "Something went wrong, Retype your email and click the SUBSCRIBE button again", "error");
+      }
+    }
+    ).catch(function(err){
       console.log(err);
+      swal("Oops!", "Something went wrong, Retype your email and click the SUBSCRIBE button again", "error");
     });
     email.value = "";
   };
@@ -38,7 +47,7 @@ const CustomForm = ({
         {status === "sending" && (
           <div style={{ color: "#3498db", fontSize: "12px" }}>sending...</div>
         )}
-        {status === "error" && (
+        {/* {status === "error" && (
           <div
             style={{ color: "#e74c3c", fontSize: "12px" }}
             dangerouslySetInnerHTML={{ __html: message }}
@@ -49,7 +58,7 @@ const CustomForm = ({
             style={{ color: "#2ecc71", fontSize: "12px" }}
             dangerouslySetInnerHTML={{ __html: message }}
           />
-        )}
+        )} */}
         <div
           className={`clear-3 ${subscribeBtnClass ? subscribeBtnClass : ""}`}
         >
