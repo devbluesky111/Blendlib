@@ -40,7 +40,7 @@ const CustomForm = ({
             className="email"
             ref={node => (email = node)}
             type="email"
-            placeholder="Type your email here and click the SUBSCRIBE button below"
+            placeholder="Your Email Address"
             required
           />
         </div>
