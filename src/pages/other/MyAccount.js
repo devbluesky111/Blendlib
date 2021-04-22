@@ -105,7 +105,7 @@ const MyAccount = ({ location }) => {
   return (
     <Fragment>
       <MetaTags>
-        <title>Sumish | My Account</title>
+        <title>BlendLib | My Account</title>
         <meta
           name="description"
           content="Compare page of flone react minimalist eCommerce template."

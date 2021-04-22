@@ -69,7 +69,7 @@ const LoginRegister = ({ location }) => {
   return (
     <Fragment>
       <MetaTags>
-        <title>Sumish | Login</title>
+        <title>BlendLib | Login</title>
         <meta
           name="description"
           content="Compare page of flone react minimalist eCommerce template."

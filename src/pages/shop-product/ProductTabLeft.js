@@ -15,7 +15,7 @@ const ProductTabLeft = ({ location, product }) => {
   return (
     <Fragment>
       <MetaTags>
-        <title>Sumish | Product Page</title>
+        <title>BlendLib | Product Page</title>
         <meta
           name="description"
           content="Product page of flone react minimalist eCommerce template."

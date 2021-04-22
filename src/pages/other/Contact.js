@@ -29,10 +29,10 @@ const Contact = ({ location }) => {
   return (
     <Fragment>
       <MetaTags>
-        <title>Sumish | Help</title>
+        <title>BlendLib | Help</title>
         <meta
           name="description"
-          content="Contact of sumish minimalist eCommerce template."
+          content="Contact of BlendLib minimalist eCommerce template."
         />
       </MetaTags>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>

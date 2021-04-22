@@ -17,7 +17,7 @@ const About = ({ location }) => {
   return (
     <Fragment>
       <MetaTags>
-        <title>Sumish | About us</title>
+        <title>BlendLib | About us</title>
         <meta
           name="description"
           content="About page of flone react minimalist eCommerce template."
