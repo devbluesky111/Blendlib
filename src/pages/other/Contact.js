@@ -99,7 +99,7 @@ const Contact = ({ location }) => {
                       </Nav.Item>
                       {membership && (membership === 'platinum') ?
                       <Nav.Item>
-                        <Nav.Link eventKey="platinum">
+                        <Nav.Link target="_blank" eventKey="platinum" href="https://docs.google.com/document/d/e/2PACX-1vR7BS0TKROKQ8kXUoKTDGh3r_qVuMX1a9DhD740dZxWGkPEqZ8YyI00UGt4iUzz5WLWmFhzHyyk2mNA/pub">
                           <div className="single-contact-info">
                             <div className="contact-icon">
                               <i className="fa fa-user-plus" />
@@ -197,17 +197,12 @@ const Contact = ({ location }) => {
                       </div>
                     </Tab.Pane>
                     <Tab.Pane eventKey="platinum">
-                      <div className="contact-form platinum-size">
-                        <div className="contact-title mt-30 ml-20 mb-30">
+                      <div className="contact-form">
+                        <div className="contact-title mb-50">
                           <h2>Blender Guide and Tool</h2>
                         </div>
                         <div className="row mb-30 ml-10">
-                          <iframe
-                            title="Blender Guide Google.doc link"
-                            width="100%"
-                            height="500"
-                            src="https://docs.google.com/document/d/e/2PACX-1vR7BS0TKROKQ8kXUoKTDGh3r_qVuMX1a9DhD740dZxWGkPEqZ8YyI00UGt4iUzz5WLWmFhzHyyk2mNA/pub?embedded=true">
-                          </iframe>
+                          <h4 className="mb-30">You can find the full content on the google doc link page</h4>
                         </div>
                       </div>
                     </Tab.Pane>

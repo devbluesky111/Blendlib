@@ -10,6 +10,7 @@
 
 .contact-info-wrap {
   background-color: #f3f3f3;
+  height: 610px;
   padding: 80px 40px 50px 40px;
   @media #{$lg-layout} {
     padding: 120px 20px 116px 40px;
@@ -90,7 +91,7 @@
 
 .contact-form {
   background-color: #f3f3f3;
-  height: 672px;
+  height: 610px;
   padding: 50px 110px 50px 110px;
   @media #{$lg-layout} {
     padding: 50px 50px 50px 50px;
