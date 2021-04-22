@@ -29,7 +29,7 @@ const Contact = ({ location }) => {
   return (
     <Fragment>
       <MetaTags>
-        <title>Sumish | Contact</title>
+        <title>Sumish | Help</title>
         <meta
           name="description"
           content="Contact of sumish minimalist eCommerce template."
@@ -37,7 +37,7 @@ const Contact = ({ location }) => {
       </MetaTags>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>
-        Contact
+        Help
       </BreadcrumbsItem>
       <LayoutOne headerTop="visible">
         {/* breadcrumb */}

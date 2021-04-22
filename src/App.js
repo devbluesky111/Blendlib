@@ -104,7 +104,7 @@ const App = props => {
                   component={About}
                 />
                 <Route
-                  path={process.env.PUBLIC_URL + "/contact"}
+                  path={process.env.PUBLIC_URL + "/help"}
                   component={Contact}
                 />
                 <Route
