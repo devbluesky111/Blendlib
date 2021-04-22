@@ -111,7 +111,7 @@ const FooterSumish = ({
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                Sumish
+                BlendLib
               </a>
               . All Rights Reserved.
             </p>

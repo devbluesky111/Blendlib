@@ -21,7 +21,7 @@ const SectionTitleWithText = ({ spaceTopClass, spaceBottomClass }) => {
       <div className="container">
         <div className="welcome-content text-center">
           <h1>{count} <sup>+</sup></h1>
-          <h2>Welcome To Sumish</h2>
+          <h2>Welcome To BlendLib</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
             eiusmod tempor incididunt labor et dolore magna aliqua. Ut enim ad

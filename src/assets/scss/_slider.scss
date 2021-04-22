@@ -921,8 +921,8 @@
 .slider-btn-5 {
     a{
         font-size: 16px;
-        color: #FFF;
-        background-color: $theme-color;
+        color: #000;
+        background-color: #fbfcfc;
         display: inline-block;
         line-height: 1;
         padding: 17px 40px 18px; 
@@ -930,7 +930,7 @@
         &:hover {
             border: none;
             color: #FFF;
-            background-color: $hover-color;
+            background-color: $theme-color;
         }
     }
 }
