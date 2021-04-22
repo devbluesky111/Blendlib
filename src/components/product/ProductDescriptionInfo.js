@@ -20,14 +20,18 @@ const ProductDescriptionInfo = ({
         );
       }
     } else if (type === 'pro') {
-      if (membership === 'free') {
-        swal("Oops!", "You have to upgrade your membership to pro to download this file!", "error");
+      if (membership === 'no') {
+        swal("Oops!", "You have to login or sign up to download this file!", "error");
       } else {
-        window.open(
-          Backend.URL + '/blends/' + target,
-          '_blank'
-        );
-      }
+        if (membership === 'free') {
+          swal("Oops!", "You have to upgrade your membership to pro to download this file!", "error");
+        } else {
+          window.open(
+            Backend.URL + '/blends/' + target,
+            '_blank'
+          );
+        }
+      } 
     } else if (type === 'platinum') {
       if (membership === 'platinum') {
         window.open(
@@ -53,7 +57,7 @@ const ProductDescriptionInfo = ({
             {product.local_blend ? product.local_blend.split('|').map((lb, _i)=>{
               return (
                 <div className="mt-2" key={_i}>
-                  <Link to="#" onClick={() => {download(lb, 'platinum')}} > <Badge variant='danger' style={{color:'white'}}>Platinum</Badge>&nbsp;&nbsp;&nbsp;&nbsp;<i className="fa fa-download"></i> {lb.split('/').pop()}</Link>
+                  <Link to="#" onClick={() => {download(lb, 'platinum')}} > <Badge style={{color:'white', backgroundColor:'#252521'}}>Platinum</Badge>&nbsp;&nbsp;&nbsp;&nbsp;<i className="fa fa-download"></i> {lb.split('/').pop()}</Link>
                 </div>
               )
             }) : <></>}

@@ -192,7 +192,7 @@ function ProductModal(props) {
                     {product.local_blend ? product.local_blend.split('|').map((lb, _i)=>{
                       return (
                         <div className="mt-2" key={_i}>
-                          <Link to="#" onClick={() => {download(lb, 'platinum')}} > <Badge variant="danger" style={{color:'white'}}>Platinum</Badge>&nbsp;&nbsp;&nbsp;&nbsp;<i className="fa fa-download"></i> {lb.split('/').pop()}</Link>
+                          <Link to="#" onClick={() => {download(lb, 'platinum')}} > <Badge style={{color:'white', backgroundColor:'#252521'}}>Platinum</Badge>&nbsp;&nbsp;&nbsp;&nbsp;<i className="fa fa-download"></i> {lb.split('/').pop()}</Link>
                         </div>
                       )
                     }) : <></>}
@@ -202,14 +202,14 @@ function ProductModal(props) {
                     {product.free_blend ? product.free_blend.split('|').map((fb, _i)=>{
                       return (
                         <div className="mt-2" key={_i}>
-                          <Link to="#" onClick={() => {download(fb, 'free')}} > <Badge variant="primary" style={{color:'white'}}>Free</Badge>&nbsp;&nbsp;&nbsp;&nbsp;<i className="fa fa-download"></i> {fb.split('/').pop()}  </Link>
+                          <Link to="#" onClick={() => {download(fb, 'free')}} > <Badge style={{color:'white', backgroundColor:'#587175'}}>Free</Badge>&nbsp;&nbsp;&nbsp;&nbsp;<i className="fa fa-download"></i> {fb.split('/').pop()}  </Link>
                         </div>
                       )
                     }) : <></>}
                     {product.pro_blend ? product.pro_blend.split('|').map((pb, _i)=>{
                       return (
                         <div className="mt-2" key={_i}>
-                          <Link to="#" onClick={() => {download(pb, 'pro')}} > <Badge variant="danger" style={{color:'white'}}> &nbsp;Pro&nbsp;&nbsp; </Badge>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i className="fa fa-download"></i> {pb.split('/').pop()}  </Link>
+                          <Link to="#" onClick={() => {download(pb, 'pro')}} > <Badge style={{color:'white', backgroundColor:'#33434e'}}> &nbsp;Pro&nbsp;&nbsp; </Badge>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i className="fa fa-download"></i> {pb.split('/').pop()}  </Link>
                         </div>
                       )
                     }) : <></>}

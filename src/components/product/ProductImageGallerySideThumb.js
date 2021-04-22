@@ -45,12 +45,12 @@ const ProductImageGalleryLeftThumb = ({ product }) => {
           <div className="product-large-image-wrapper">  
             <div className="product-img-badges">          
               {product.created && product.created.includes(today) ? (
-                  <span className="purple">New</span>
+                  <span className="gray">New</span>
               ) : (
                 ""
               )}
               {product.platinum === 'on' ? (
-                  <span className="pink">Platinum</span>
+                  <span style={{backgroundColor:'#252521'}}>Platinum</span>
               ) : (
                 ""
               )}

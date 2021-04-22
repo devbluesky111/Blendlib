@@ -2,6 +2,7 @@ import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import ProductModal from "./ProductModal";
 import Backend from '../../@utils/BackendUrl';
+import swal from "sweetalert";
 
 const ProductGridListSingle = ({
   product,
@@ -18,10 +19,15 @@ const ProductGridListSingle = ({
   today = yyyy + '-' + mm + '-' + dd;
 
   const download_free_one = async (target) => {
-    window.open(
-      Backend.URL + '/blends/' + target,
-      '_blank'
-    );
+    if(product.free_blend.split("|")[0]) {
+      window.open(
+        Backend.URL + '/blends/' + target,
+        '_blank'
+      );
+    } else {
+      swal("No any available free blends");
+    }
+    
   }
 
   return (
@@ -54,12 +60,12 @@ const ProductGridListSingle = ({
             
             <div className="product-img-badges">          
               {product.created && product.created.includes(today) ? (
-                  <span className="purple">New</span>
+                  <span className="gray">New</span>
               ) : (
                 ""
               )}
               {product.platinum === 'on' ? (
-                  <span className="pink">Platinum</span>
+                  <span style={{backgroundColor:'#252521'}}>Platinum</span>
               ) : (
                 ""
               )}
@@ -80,16 +86,14 @@ const ProductGridListSingle = ({
                   <i className="pe-7s-like" />
                 </button>
               </div>
-              {product.free_blend?
-                <div className="pro-same-action pro-cart">
-                  <button
-                    className={wishlistItem ? "active" : ""}
-                    onClick={() => {download_free_one(product.free_blend.split("|")[0])}}
-                  >
-                    <i className="fa fa-download" />
-                  </button>
-                </div> : <></>
-              }
+              <div className="pro-same-action pro-cart">
+                <button
+                  className={wishlistItem ? "active" : ""}
+                  onClick={() => {download_free_one(product.free_blend.split("|")[0])}}
+                >
+                  <i className="fa fa-download" />
+                </button>
+              </div>
               <div className="pro-same-action pro-quickview">
                 <button onClick={() => setModalShow(true)} title="Quick View">
                   <i className="pe-7s-look" />

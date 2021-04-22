@@ -56,7 +56,7 @@ const ProductGridSingle = ({
                 ""
               )}
               {product.platinum === 'on' ? (
-                  <span className="pink">Platinum</span>
+                  <span style={{backgroundColor:'#252521'}}>Platinum</span>
               ) : (
                 ""
               )}

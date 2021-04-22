@@ -53,7 +53,7 @@ const ProductGridSingleFive = ({
                 ) : (
                   ""
                 )}
-                {product.new ? <span className="purple">New</span> : ""}
+                {product.new ? <span className="gray">New</span> : ""}
               </div>
             ) : (
               ""
