@@ -63,6 +63,8 @@ const ProductDescriptionInfo = ({
           text: "You have to upgrade your membership to platinum to download this file!",
           icon: "error",
           button: "Upgrade to Platinum",
+        }).then(() => {
+          window.location.href = process.env.PUBLIC_URL + "/about";
         });
       }
     }
