@@ -26,6 +26,7 @@ const BlogDetailsStandard = lazy(() => import("./pages/blog/BlogDetailsStandard"
 // other pages
 const About = lazy(() => import("./pages/other/About"));
 const Contact = lazy(() => import("./pages/other/Contact"));
+const Guide = lazy(() => import("./pages/other/Guide"));
 const MyAccount = lazy(() => import("./pages/other/MyAccount"));
 const LoginRegister = lazy(() => import("./pages/other/LoginRegister"));
 const Wishlist = lazy(() => import("./pages/other/Wishlist"));
@@ -106,6 +107,10 @@ const App = props => {
                 <Route
                   path={process.env.PUBLIC_URL + "/help"}
                   component={Contact}
+                />
+                <Route
+                  path={process.env.PUBLIC_URL + "/blend-guide"}
+                  component={Guide}
                 />
                 <Route
                   path={process.env.PUBLIC_URL + "/my-account"}

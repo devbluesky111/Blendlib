@@ -99,7 +99,7 @@ const Contact = ({ location }) => {
                       </Nav.Item>
                       {membership && (membership === 'platinum') ?
                       <Nav.Item>
-                        <Nav.Link target="_blank" eventKey="platinum" href="https://docs.google.com/document/d/e/2PACX-1vR7BS0TKROKQ8kXUoKTDGh3r_qVuMX1a9DhD740dZxWGkPEqZ8YyI00UGt4iUzz5WLWmFhzHyyk2mNA/pub">
+                        <Nav.Link eventKey="platinum" href="/blend-guide">
                           <div className="single-contact-info">
                             <div className="contact-icon">
                               <i className="fa fa-user-plus" />
