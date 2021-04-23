@@ -1,8 +1,9 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ProductModal from "./ProductModal";
 import Backend from '../../@utils/BackendUrl';
 import swal from "sweetalert";
+import axios from 'axios';
 
 const ProductGridListSingle = ({
   product,
@@ -12,22 +13,54 @@ const ProductGridListSingle = ({
   spaceBottomClass
 }) => {
   const [modalShow, setModalShow] = useState(false);
+  const [membership, setMembership] = useState('no');
+
+  useEffect(() => {
+    const init = async () => {
+
+        const user = await axios.post(Backend.URL + '/check_login', {params: 'check_login'}, { withCredentials: true, headers: {"Access-Control-Allow-Origin": "*"} });
+        
+        if(user.data.status === 'success') {
+            let user_data = user.data.data[0][0];
+            setMembership(user_data.membership);
+        }
+    }
+    init(); 
+  }, []);
+
   var today = new Date();
   var dd = String(today.getDate()).padStart(2, '0');
   var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
   var yyyy = today.getFullYear();
   today = yyyy + '-' + mm + '-' + dd;
 
-  const download_free_one = async (target) => {
-    if(product.free_blend.split("|")[0]) {
-      window.open(
-        Backend.URL + '/blends/' + target,
-        '_blank'
-      );
+  const download_free_one = async () => {
+    if(membership === "platinum"){
+      if(product.local_blend.split("|")[0]) {
+        window.open(
+          Backend.URL + '/blends/' + product.local_blend.split("|")[0],
+          '_blank'
+        );
+      } else {
+        if(product.free_blend.split("|")[0]) {
+          window.open(
+            Backend.URL + '/blends/' + product.free_blend.split("|")[0],
+            '_blank'
+          );
+        } else {
+          swal("No any available free blends");
+        }
+      }
     } else {
-      swal("No any available free blends");
+      if(product.free_blend.split("|")[0]) {
+        window.open(
+          Backend.URL + '/blends/' + product.free_blend.split("|")[0],
+          '_blank'
+        );
+      } else {
+        swal("No any available free blends");
+      }
     }
-    
   }
 
   return (
@@ -89,7 +122,7 @@ const ProductGridListSingle = ({
               <div className="pro-same-action pro-cart">
                 <button
                   className={wishlistItem ? "active" : ""}
-                  onClick={() => {download_free_one(product.free_blend.split("|")[0])}}
+                  onClick={download_free_one}
                 >
                   <i className="fa fa-download" />
                 </button>

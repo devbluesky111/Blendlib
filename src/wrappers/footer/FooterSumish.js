@@ -107,7 +107,7 @@ const FooterSumish = ({
             <p>
               © 2021{" "}
               <a
-                href="//www.sumish.herokuapp.com"
+                href="https://www.blendlib.com"
                 rel="noopener noreferrer"
                 target="_blank"
               >

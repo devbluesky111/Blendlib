@@ -81,9 +81,17 @@ function ProductModal(props) {
           title: "Oops!",
           text: "Log In to BlendLib",
           icon: "error",
-          button: "Get Started",
-        }).then(() => {
-          window.location.href = process.env.PUBLIC_URL + "/login-register";
+          buttons: true,
+        })
+        .then((isConfirmed) => {
+          if (isConfirmed) {
+            swal("You will be our user!", {
+              icon: "success",
+            });
+            window.location.href = process.env.PUBLIC_URL + "/login-register";
+          } else {
+            swal("You can dive further, enjoy!");
+          }
         });
       } else {
         window.open(
@@ -97,9 +105,17 @@ function ProductModal(props) {
           title: "Oops!",
           text: "Log In to BlendLib",
           icon: "error",
-          button: "Get Started",
-        }).then(() => {
-          window.location.href = process.env.PUBLIC_URL + "/login-register";
+          buttons: true,
+        })
+        .then((isConfirmed) => {
+          if (isConfirmed) {
+            swal("You will be our user!", {
+              icon: "success",
+            });
+            window.location.href = process.env.PUBLIC_URL + "/login-register";
+          } else {
+            swal("You can dive further, enjoy!");
+          }
         });
       } else {
         if (membership === 'free') {
@@ -107,10 +123,19 @@ function ProductModal(props) {
             title: "Oops!",
             text: "You have to upgrade your membership to pro to download this file!",
             icon: "error",
-            button: "Upgrade to Pro",
-          }).then(() => {
-            window.location.href = process.env.PUBLIC_URL + "/about";
+            buttons: true,
+          })
+          .then((isConfirmed) => {
+            if (isConfirmed) {
+              swal("You will be our Pro user!", {
+                icon: "success",
+              });
+              window.location.href = process.env.PUBLIC_URL + "/about";
+            } else {
+              swal("You can dive further, enjoy!");
+            }
           });
+          
         } else {
           window.open(
             Backend.URL + '/blends/' + target,
@@ -129,9 +154,17 @@ function ProductModal(props) {
           title: "Oops!",
           text: "You have to upgrade your membership to platinum to download this file!",
           icon: "error",
-          button: "Upgrade to Platinum",
-        }).then(() => {
-          window.location.href = process.env.PUBLIC_URL + "/about";
+          buttons: true,
+        })
+        .then((isConfirmed) => {
+          if (isConfirmed) {
+            swal("You will be our Premium user!", {
+              icon: "success",
+            });
+            window.location.href = process.env.PUBLIC_URL + "/about";
+          } else {
+            swal("You can dive further, enjoy!");
+          }
         });
       }
     }
