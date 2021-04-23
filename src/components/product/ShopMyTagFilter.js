@@ -174,7 +174,7 @@ const ShopMyTagFilter = ({setSortedProducts}) => {
                     </div>
                     <div className="col-md-3 col-sm-6 col-xs-12 mb-30">
                         <div className="product-filter">
-                            <Button variant="contained" color="primary" onClick={e => productFilter(e)}>
+                            <Button variant="contained" style={{color:"#fff",backgroundColor:"#587175"}} onClick={e => productFilter(e)}>
                                 Filter
                             </Button>
                         </div>

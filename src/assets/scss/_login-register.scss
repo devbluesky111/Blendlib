@@ -99,9 +99,9 @@
             }
           }
           button {
-            background-color: #f2f2f2;
+            background-color: $theme-color;
             border: medium none;
-            color: #333;
+            color: #FFF;
             cursor: pointer;
             font-size: 14px;
             font-weight: 500;
@@ -110,7 +110,7 @@
             text-transform: uppercase;
             transition: all 0.3s ease 0s;
             &:hover {
-              background-color: $theme-color;
+              background-color: $hover-color;
               color: #fff;
             }
           }

@@ -62,7 +62,7 @@ const LoginRegister = ({ location }) => {
     } else if(res.data.status === 'restrict') {
       swal("Opps!", "Your account has been restricted. \n Please contact the administrator!", "error");
     } else {
-      window.location.href = process.env.PUBLIC_URL + "/my-account";
+      window.location.href = process.env.PUBLIC_URL + "/collection";
     }
   }
 

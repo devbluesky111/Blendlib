@@ -72,12 +72,19 @@ function ProductModal(props) {
         }
     }
     init(); 
-}, [pathname]);
+  }, [pathname]);
 
   const download = async (target, type) => {
     if (type === 'free') {
       if (membership === 'no') {
-        swal("Oops!", "You have to login or sign up to download this file!", "error");
+        swal({
+          title: "Oops!",
+          text: "Log In to BlendLib",
+          icon: "error",
+          button: "Get Started",
+        }).then(() => {
+          window.location.href = process.env.PUBLIC_URL + "/login-register";
+        });
       } else {
         window.open(
           Backend.URL + '/blends/' + target,
@@ -85,14 +92,30 @@ function ProductModal(props) {
         );
       }
     } else if (type === 'pro') {
-      if (membership === 'free') {
-        swal("Oops!", "You have to upgrade your membership to pro to download this file!", "error");
+      if (membership === 'no') {
+        swal({
+          title: "Oops!",
+          text: "Log In to BlendLib",
+          icon: "error",
+          button: "Get Started",
+        });
       } else {
-        window.open(
-          Backend.URL + '/blends/' + target,
-          '_blank'
-        );
-      }
+        if (membership === 'free') {
+          swal({
+            title: "Oops!",
+            text: "You have to upgrade your membership to pro to download this file!",
+            icon: "error",
+            button: "Upgrade to Pro",
+          }).then(() => {
+            window.location.href = process.env.PUBLIC_URL + "/about";
+          });
+        } else {
+          window.open(
+            Backend.URL + '/blends/' + target,
+            '_blank'
+          );
+        }
+      } 
     } else if (type === 'platinum') {
       if (membership === 'platinum') {
         window.open(
@@ -100,7 +123,12 @@ function ProductModal(props) {
           '_blank'
         );
       } else {
-        swal("Oops!", "You have to upgrade your membership to platinum to download this file!", "error");
+        swal({
+          title: "Oops!",
+          text: "You have to upgrade your membership to platinum to download this file!",
+          icon: "error",
+          button: "Upgrade to Platinum",
+        });
       }
     }
   }
