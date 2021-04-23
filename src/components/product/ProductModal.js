@@ -98,6 +98,8 @@ function ProductModal(props) {
           text: "Log In to BlendLib",
           icon: "error",
           button: "Get Started",
+        }).then(() => {
+          window.location.href = process.env.PUBLIC_URL + "/login-register";
         });
       } else {
         if (membership === 'free') {
