@@ -19,6 +19,6 @@ https://sumish.herokuapp.com/
 
 ```
 Thank you
-Artem Medianyk
+Dmitriy Kuryshov
 ```
 
